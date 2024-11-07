@@ -1,0 +1,195 @@
+
+
+
+
+/********************** sertifikasi **********************/
+
+.sertifikasi .row{
+    text-align: center;
+}
+
+.sertifikasi .row .columns{
+    box-shadow: var(--box-shadow);
+    border: var(--borde);
+    border-bottom: 1rem solid var(--white);
+    margin: 0.5rem;
+}
+
+.sertifikasi .row .columns:hover{
+    background: var(--white);
+    color: var(--light-color);
+    border-bottom: 1rem solid var(--red);
+}
+
+.sertifikasi .row {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: var(--black);
+}
+
+/********************** Certifications section **********************/
+
+.site-certifications .row{
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    text-align: center;
+    justify-content: center!important;
+    margin: 3rem auto;
+}
+
+.site-certifications .row .columns{
+    box-shadow: var(--box-shadow);
+    border: var(--borde);
+    margin: 0;
+    transform: scale(0.9)!important;
+    justify-content: center;
+}
+
+
+.site-certifications .columns h3{
+    text-transform: uppercase;
+}
+
+.site-certifications .columns .sub-title{
+    font-size: 1.5rem;
+    color: var(--black);
+}
+
+.site-certifications .columns .numero span {
+    position: relative;
+    font-size: 2.5rem;
+    top: -.7em;
+}
+
+.site-certifications .columns .numero{
+    font-size: 5rem;
+    font-weight: bold;
+    line-height: 1;
+    color: var(--black);
+}
+
+.site-certifications .columns .ul-cards-certifications{
+    margin: 0 0 2rem 0;
+}
+
+
+.site-certifications .columns li {
+    font-size: 1.5rem;
+    line-height: 2;
+}
+
+
+.site-certifications .row .columns li i {
+    font-size: 1.5rem;
+    padding-right: 0.2rem;
+    color: var(--black);
+}
+
+
+.site-certifications .row .recomendado{
+    background: var(--black);
+    transform: scale(1.1)!important;
+}
+
+.site-certifications .row .recomendado .sub-title,
+.site-certifications .row .recomendado .numero{
+    color: var(--white);
+}
+
+.site-certifications .row .recomendado li,
+.site-certifications .row .recomendado li{
+    color: var(--light-color);
+}
+
+.heading-certifications.btn-certifications{
+    display: none!important;
+}
+
+
+/********************** certifications section **********************/
+
+.preguntas .accordion-container {
+    max-width: 70rem;
+    margin: 0 auto;
+}
+
+.preguntas .accordion-container .accordion {
+    background: var(--white);
+    margin-bottom: 1.5rem;
+    -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.preguntas .accordion-container .accordion:last-child {
+    margin-bottom: .5rem;
+}
+
+.preguntas .accordion-container .accordion.active .accordion-heading {
+    background: var(--black);
+}
+
+.preguntas .accordion-container .accordion.active .accordion-heading h3 {
+    color: var(--white);
+}
+
+.preguntas .accordion-container .accordion.active .accordion-heading {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    color: var(--white);
+}
+
+.preguntas .accordion-container .accordion.active .accordioin-content {
+    display: block;
+    color: var(--black);
+}
+
+.preguntas .accordion-container .accordion .accordion-heading {
+    padding: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 1rem;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    background: var(--white);
+    cursor: pointer;
+}
+
+.preguntas .accordion-container .accordion .accordion-heading h3,
+.preguntas .accordion-container .accordion .accordion-heading {
+    font-size: 2rem;
+    color: var(--black);
+    text-transform: none;
+}
+
+.preguntas .accordion-container .accordioin-content {
+    padding: 2rem;
+    font-size: 1.5rem;
+    line-height: 2;
+    color: #666;
+    text-transform: none;
+    display: none;
+    -webkit-animation: fadeIn .2s linear;
+            animation: fadeIn .2s linear;
+}
+
+
+/********************** Media Q **********************/
+
+@media (max-width: 760px) {
+    .site-certifications .row{
+        grid-template-columns: 90%;
+    }
+    
+    .site-certifications .row .columns{
+        transform: scale(1)!important;
+    }
+
+    .site-certifications .row .recomendado{
+        transform: scale(1)!important;
+    }
+}
