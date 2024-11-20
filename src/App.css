@@ -114,6 +114,15 @@ body.dark .custom-btn {
     box-shadow: none;
 }
 
+.custom-btn, .btn, .btn-codigo {
+    min-width: 24px; /* Ukuran minimal */
+    min-height: 24px; /* Ukuran minimal */
+    padding: 12px 16px; /* Memperbesar area klik */
+    margin: 8px; /* Memberikan ruang antar tombol */
+    font-size: 16px; /* Ukuran teks yang cukup besar */
+    border-radius: 5px; /* Tampilan yang lebih baik */
+}
+
 .btn {
     background: var(--red);
     color: var(--black);
