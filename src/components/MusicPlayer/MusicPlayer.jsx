@@ -2,23 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import './MusicPlayer.css';
 
 const MusicPlayer = () => {
-    const [isPlaying, setIsPlaying] = useState(true); // Set default to true
+    const [isPlaying, setIsPlaying] = useState(false); // Set default to false
     const audioRef = useRef(new Audio(process.env.PUBLIC_URL + '/ambient.mp3'));
 
     useEffect(() => {
         // Setup audio
         audioRef.current.loop = true;
-
-        const playAudio = async () => {
-            try {
-                await audioRef.current.play();
-            } catch (err) {
-                console.error("Autoplay failed:", err);
-            }
-        };
-
-        // Cek jika audio sudah dimuat
-        audioRef.current.oncanplaythrough = playAudio;
 
         // Cleanup function
         return () => {
