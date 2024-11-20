@@ -375,6 +375,9 @@
   .fa-chevron-up {
     --fa: "\f077";
     --fa--fa: "\f077\f077"; }
+  .fa-pause {
+    --fa: "\f04c";
+    --fa--fa: "\f04c\f04c"; }
   /*pembatas*/
   .sr-only,
   .fa-sr-only {
