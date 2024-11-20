@@ -35,10 +35,18 @@ const Content = () => (
                 </p>
 
                 <div className="redes-sociales">
-                    <a href="https://www.linkedin.com/in/adi-satria-sejati-8058a3163/" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="1200"><i className="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/AdiSatriaSejati/" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="1400"><i className="fab fa-github"></i></a>
-                    <a href="https://www.instagram.com/adisatriasejati/" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="1600"><i className="fab fa-instagram"></i></a>
-                    <a href="https://api.whatsapp.com/send?phone=6285819991215" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="1800"><i className="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/in/adi-satria-sejati-8058a3163/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" data-aos="fade-up" data-aos-delay="1200">
+                        <i className="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/AdiSatriaSejati/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" data-aos="fade-up" data-aos-delay="1400">
+                        <i className="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/adisatriasejati/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-aos="fade-up" data-aos-delay="1600">
+                        <i className="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=6285819991215" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" data-aos="fade-up" data-aos-delay="1800">
+                        <i className="fab fa-whatsapp"></i>
+                    </a>
                 </div>
                 <div className="wrapper">
                     <a className="button" href="https://www.linkedin.com/in/adi-satria-sejati-8058a3163/" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="1200">
@@ -67,7 +75,7 @@ const Content = () => (
                     </a>
                 </div>
 
-                <Link to="sobre-mi" href="#sobre-mi">
+                <Link to="sobre-mi" href="#sobre-mi" aria-label="Scroll to About Me">
                     <div className="scroll-down"></div>
                 </Link>
             </div>
