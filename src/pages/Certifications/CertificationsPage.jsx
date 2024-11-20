@@ -31,7 +31,12 @@ const Certifications = () => {
                         defaultMessage='Learn Basic Web Programming'
                     />
                 </h3>
-                <img src="https://ik.imagekit.io/AdiSatriaSejati/Belajar%20Dasar%20Pemrograman%20Web.png?updatedAt=1729105707846" alt="Learn Basic Web Programming" />
+                <img 
+                src="https://ik.imagekit.io/AdiSatriaSejati/Belajar%20Dasar%20Pemrograman%20Web.png?updatedAt=1729105707846" 
+                alt="Learn Basic Web Programming" 
+                width="100%"
+                height="100%"
+                />
             </div>
             <div className="columns" data-aos="fade-up" data-aos-delay="300">
                 <h3>
@@ -40,7 +45,12 @@ const Certifications = () => {
                         defaultMessage='Front End Development Libraries'
                     />
                 </h3>
-                <img src="https://ik.imagekit.io/AdiSatriaSejati/Front%20End%20Development%20Libraries.png?updatedAt=1729106041951" alt="Front End Development Libraries" />
+                <img 
+                src="https://ik.imagekit.io/AdiSatriaSejati/Front%20End%20Development%20Libraries.png?updatedAt=1729106041951" 
+                alt="Front End Development Libraries"
+                width="100%"
+                height="100%"
+                />
             </div>
             <div className="columns" data-aos="fade-up" data-aos-delay="400">
                 <h3>
@@ -49,7 +59,12 @@ const Certifications = () => {
                         defaultMessage='cPanel User Interface Proficiency'
                     />
                 </h3>
-                <img src="https://ik.imagekit.io/AdiSatriaSejati/cPanel%20User%20Interface%20Proficiency.png?updatedAt=1729143736944" alt="cPanel User Interface Proficiency" />
+                <img 
+                src="https://ik.imagekit.io/AdiSatriaSejati/cPanel%20User%20Interface%20Proficiency.png?updatedAt=1729143736944" 
+                alt="cPanel User Interface Proficiency" 
+                width="100%"
+                height="100%"
+                />
             </div>
             <div className="columns" data-aos="fade-up" data-aos-delay="500">
                 <h3>
@@ -58,7 +73,12 @@ const Certifications = () => {
                         defaultMessage='Early Financial Planning'
                     />
                 </h3>
-                <img src="https://ik.imagekit.io/AdiSatriaSejati/Perencanaan%20Keuangan%20Sejak%20Dini.png?updatedAt=1729143914899" alt="Perencanaan Keuangan Sejak Dini" />
+                <img 
+                src="https://ik.imagekit.io/AdiSatriaSejati/Perencanaan%20Keuangan%20Sejak%20Dini.png?updatedAt=1729143914899" 
+                alt="Perencanaan Keuangan Sejak Dini" 
+                width="100%"
+                height="100%"
+                />
             </div>
             <div className="columns" data-aos="fade-up" data-aos-delay="600">
                 <h3>
@@ -67,7 +87,12 @@ const Certifications = () => {
                         defaultMessage='Accelerate Digital Transformation'
                     />
                 </h3>
-                <img src="https://ik.imagekit.io/AdiSatriaSejati/Akselerasi%20Transformasi%20Digital%20Untuk%20Mendukung%20Ekonomi%20Kreatif.png?updatedAt=1729144027028" alt="Akselerasi Transformasi Digital" />
+                <img 
+                src="https://ik.imagekit.io/AdiSatriaSejati/Akselerasi%20Transformasi%20Digital%20Untuk%20Mendukung%20Ekonomi%20Kreatif.png?updatedAt=1729144027028" 
+                alt="Akselerasi Transformasi Digital" 
+                width="100%"
+                height="100%"
+                />
             </div>
             <div className="columns" data-aos="fade-up" data-aos-delay="700">
                 <h3>
@@ -76,7 +101,12 @@ const Certifications = () => {
                         defaultMessage='Creativity Expert Training'
                     />
                 </h3>
-                <img src="https://ik.imagekit.io/AdiSatriaSejati/PPKM%20(Pelatihan%20Pakar%20Kreatifitas%20Mahasiswa).png?updatedAt=1729144214630" alt="PPM" />
+                <img 
+                src="https://ik.imagekit.io/AdiSatriaSejati/PPKM%20(Pelatihan%20Pakar%20Kreatifitas%20Mahasiswa).png?updatedAt=1729144214630" 
+                alt="PPM" 
+                width="100%"
+                height="100%"
+                />
             </div>
             <div className="columns" data-aos="fade-up" data-aos-delay="800">
                 <h3>

@@ -68,8 +68,20 @@ const Header = () => {
                     />
                 </Link>
                 <div id="buttons">
-                    <img onClick={() => idioma.selectLanguage('en-EN')} src="https://ik.imagekit.io/AdiSatriaSejati/English.webp?updatedAt=1684558198256" alt="English" />
-                    <img onClick={() => idioma.selectLanguage('id-ID')} src="https://ik.imagekit.io/AdiSatriaSejati/Indonesia.webp?updatedAt=1684558198225" alt="Indonesian" />
+                    <img 
+                    onClick={() => idioma.selectLanguage('en-EN')} 
+                    src="https://ik.imagekit.io/AdiSatriaSejati/English.webp?updatedAt=1684558198256" 
+                    alt="English" 
+                    width="30" 
+                    height="20" 
+                    />
+                    <img 
+                    onClick={() => idioma.selectLanguage('id-ID')} 
+                    src="https://ik.imagekit.io/AdiSatriaSejati/Indonesia.webp?updatedAt=1684558198225" 
+                    alt="Indonesian" 
+                    width="30" 
+                    height="20" 
+                    />
                 </div>
             </nav>
             <div className="switch" id="switch">
