@@ -29,6 +29,7 @@ const MusicPlayer = () => {
         <button 
             onClick={toggleMusic} 
             className="music-toggle"
+            aria-label={isPlaying ? "Pause music" : "Play music"}
         >
             {isPlaying ? <i className="fas fa-pause"></i> : <i className="fas fa-play"></i>}
         </button>
