@@ -169,7 +169,13 @@ body.dark #darkMode::after {
 
 @media (max-width: 990px) {
   .site-header {
-    padding: 2rem 4%;
+    padding: 2rem 3% 2rem 3%;
+  }
+
+  .logo p {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    width: 100%;
   }
 
   body.light #darkMode::after,

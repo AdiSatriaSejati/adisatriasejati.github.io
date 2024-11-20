@@ -1,5 +1,6 @@
 .music-toggle {
     position: fixed;
+    cursor: pointer;
     bottom: 130px;
     right: 30px;
     z-index: 100;

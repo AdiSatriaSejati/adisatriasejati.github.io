@@ -40,7 +40,6 @@ const MusicPlayer = () => {
         <button 
             onClick={toggleMusic} 
             className="music-toggle"
-            style={{ cursor: 'pointer' }}
         >
             {isPlaying ? <i className="fas fa-pause"></i> : <i className="fas fa-play"></i>}
         </button>
