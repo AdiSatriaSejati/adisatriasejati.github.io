@@ -107,6 +107,7 @@ main,
                 4px 4px 5px 0px rgba(0,0,0,.1);
     outline: none;
     margin: 5px;
+    font-size: 16px;
 }
 
 body.dark .custom-btn {
@@ -119,6 +120,8 @@ body.dark .custom-btn {
     z-index: 1;
     font-size: 1.7rem;
     font-weight: 700;
+    padding: 1rem 2.5rem;
+    margin: 5px;
 }
 .btn:after {
     position: absolute;
@@ -158,6 +161,8 @@ body.dark .btn::after {
     font-weight: 700;
     cursor: pointer;
     background: transparent;
+    padding: 1rem 2.5rem;
+    margin: 5px;
 }
 
 .btn-codigo:hover{
