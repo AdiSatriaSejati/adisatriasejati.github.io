@@ -41,12 +41,13 @@
 }
 
 #buttons img {
-  height: 2rem;
+  width: 30px;
+  height: auto;
   margin-right: 1rem;
+  margin-top: -5px;
 }
 
 .navbar img {
-  width: 30px;
   cursor: pointer;
 }
 

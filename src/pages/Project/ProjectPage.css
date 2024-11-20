@@ -16,8 +16,8 @@
 
 .proyectos .proyectos-slider .caja img {
   width: 100%;
-  height: auto; /* Menjaga rasio aspek gambar */
-  max-height: 180px; /* Atur tinggi maksimum untuk gambar */
+  height: 180px;
+  object-fit: contain;
   opacity: 0.5;
   transform: scale(0.8);
 }
