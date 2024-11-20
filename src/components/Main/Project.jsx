@@ -112,8 +112,7 @@ const Project = () => {
                                 <span> -</span> MySQL
                                 <span> -</span> Laragon
                             </p>
-                            <a href="#" className="custom-btn btn" target="_blank" rel="noopener noreferrer"><span>Demo</span></a>
-                            <a href="https://github.com/Nahuel61920/CoinPlus" className="custom-btn btn-codigo" target="_blank" rel="noopener noreferrer">Repository</a>
+                            <a href="https://github.com/AdiSatriaSejati/CI4_E-LibraryAradh" className="custom-btn btn-codigo" target="_blank" rel="noopener noreferrer">Repository</a>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className='caja'>
