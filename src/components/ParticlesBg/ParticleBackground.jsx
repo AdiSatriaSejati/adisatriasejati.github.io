@@ -1,9 +1,9 @@
 import React from "react";
 import Particles from "react-tsparticles";
-import ParticleConfig from "./particle-config"
+import particlesConfig from "./particle-config";
 
 export default function ParticleBackground() {
-    return (
-        <Particles id="particles" className="particles-css" params={ParticleConfig}></Particles>
-    );
+  return (
+    <Particles id="particles" className="particles-css" options={particlesConfig} />
+  );
 }
