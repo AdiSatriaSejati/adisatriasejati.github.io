@@ -378,6 +378,9 @@
   .fa-pause {
     --fa: "\f04c";
     --fa--fa: "\f04c\f04c"; }
+  .fa-bars {
+    --fa: "\f0c9";
+    --fa--fa: "\f0c9\f0c9"; }
   /*pembatas*/
   .sr-only,
   .fa-sr-only {
