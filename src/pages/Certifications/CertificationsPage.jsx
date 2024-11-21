@@ -166,7 +166,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="img/certifications/AlgoritmaDanPemrogramanDasar.webp" 
+                src="img/certifications/AlgoritmadanPemrogramanDasar.webp" 
                 alt="ABP" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -179,7 +179,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="img/certifications/BelajarGITUntukPemula.webp" 
+                src="img/certifications/BelajarGITuntukPemula.webp" 
                 alt="GIT" 
                 style={{ width: '100%', height: 'auto' }} 
                 />

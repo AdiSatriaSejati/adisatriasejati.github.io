@@ -49,7 +49,7 @@ const Certifications = () => (
                     />
                 </h3>
                 <img 
-                src="img/certifications/CPanelUserInterfaceProficiency.webp" 
+                src="img/certifications/cPanelUserInterfaceProficiency.webp" 
                 alt="cPanel User Interface Proficiency" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
