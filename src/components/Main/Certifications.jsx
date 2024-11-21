@@ -23,7 +23,7 @@ const Certifications = () => (
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Belajar%20Dasar%20Pemrograman%20Web.png?updatedAt=1729105707846" 
+                src="img/certifications/BelajarDasarPemrogramanWeb.webp" 
                 alt="Learn Basic Web Programming" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -36,7 +36,7 @@ const Certifications = () => (
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Front%20End%20Development%20Libraries.png?updatedAt=1729106041951" 
+                src="img/certifications/FrontEndDevelopmentLibraries.webp" 
                 alt="Front End Development Libraries" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -49,7 +49,7 @@ const Certifications = () => (
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/cPanel%20User%20Interface%20Proficiency.png?updatedAt=1729143736944" 
+                src="img/certifications/CPanelUserInterfaceProficiency.webp" 
                 alt="cPanel User Interface Proficiency" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -62,7 +62,7 @@ const Certifications = () => (
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Perencanaan%20Keuangan%20Sejak%20Dini.png?updatedAt=1729143914899" 
+                src="img/certifications/PerencanaanKeuanganSejakDini.webp" 
                 alt="Perencanaan Keuangan Sejak Dini" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -75,7 +75,7 @@ const Certifications = () => (
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Akselerasi%20Transformasi%20Digital%20Untuk%20Mendukung%20Ekonomi%20Kreatif.png?updatedAt=1729144027028" 
+                src="img/certifications/AkselerasiTransformasiDigitalUntukMendukungEkonomiKreatif.webp" 
                 alt="Akselerasi Transformasi Digital" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -88,7 +88,7 @@ const Certifications = () => (
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/PPKM%20(Pelatihan%20Pakar%20Kreatifitas%20Mahasiswa).png?updatedAt=1729144214630" 
+                src="img/certifications/PPKM(PelatihanPakarKreatifitasMahasiswa).webp" 
                 alt="PPM" 
                 style={{ width: '100%', height: 'auto' }} 
                 />

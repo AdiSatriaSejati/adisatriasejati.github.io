@@ -40,13 +40,9 @@ const About = () => {
             <div className="sobre-mi-img-container">
               {/* Using img tag directly with error handling */}
               <img 
-                src={imgUrl} 
+                src='img/about/profile.webp' 
                 alt="profile" 
                 className="sobre-mi-img"
-                onError={(e) => {
-                  e.target.src = '/path/to/fallback-image.jpg'; // Add a fallback image
-                  console.log('Image failed to load, using fallback');
-                }}
               />
               
               <a 
@@ -133,7 +129,7 @@ const About = () => {
                       />
                     </h3>
                     <img 
-                      src="https://ik.imagekit.io/AdiSatriaSejati/images.png?updatedAt=1730305332064"
+                      src="img/about/education/smk.webp"
                       alt="Logo SMK Agkasa 2 Sepatan"
                       className="logo-smk"/>
                     <p>
@@ -170,7 +166,7 @@ const About = () => {
                       />
                     </h3>
                     <img 
-                        src="https://ik.imagekit.io/AdiSatriaSejati/Ico-BSI.webp?updatedAt=1684558198215" // Ganti dengan URL logo yang sesuai
+                        src="img/about/education/bsi.webp"
                         alt="Logo Bina Sarana Informatika"
                         className="logo-bsi"/>
                     <p>
@@ -258,7 +254,7 @@ const About = () => {
                       />
                     </p>
                     <img 
-                      src="https://ik.imagekit.io/AdiSatriaSejati/PT.%20SULTAN%20MUDA%20INDONESIA.jpg?updatedAt=1730393344489"
+                      src="img/about/experience/PT.SULTAN-MUDA-INDONESIA.webp"
                       alt="Surat-Keterangan"
                       className="imagecertifications"/>
                   </div>
@@ -290,7 +286,7 @@ const About = () => {
                       />
                     </p>
                     <img 
-                      src="https://ik.imagekit.io/AdiSatriaSejati/PT.Musika%20Indonesia%20Jaya.jpg?updatedAt=1730393941190"
+                      src="img/about/experience/PT.Musika-Indonesia-Jaya.webp"
                       alt="Surat-Keterangan"
                       className="imagecertifications"/>
                   </div>

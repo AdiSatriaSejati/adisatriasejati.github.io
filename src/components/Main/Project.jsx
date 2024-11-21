@@ -50,7 +50,7 @@ const Project = () => {
                 >
                     <SwiperSlide className='caja'>
                         <img
-                            src="https://ik.imagekit.io/AdiSatriaSejati/turtle.png?updatedAt=1729340416868"
+                            src="img/projects/turtle.webp"
                             alt='project'
 
                         />
@@ -68,7 +68,7 @@ const Project = () => {
                     </SwiperSlide>
                     <SwiperSlide className='caja'>
                         <img
-                            src="https://ik.imagekit.io/AdiSatriaSejati/Project-WebUniversity.png?updatedAt=1729342044578"
+                            src="img/projects/WebUniversity.webp"
                             alt='project'
 
                         />
@@ -88,7 +88,7 @@ const Project = () => {
                     </SwiperSlide>
                     <SwiperSlide className='caja'>
                         <img
-                            src="https://github.com/AdiSatriaSejati/CI4_E-LibraryAradh/blob/main/screenshots/Home.gif?raw=true"
+                            src="img/projects/CI4.gif"
                             alt='project'
 
                         />
@@ -117,7 +117,7 @@ const Project = () => {
                     </SwiperSlide>
                     <SwiperSlide className='caja'>
                         <img
-                            src="https://camo.githubusercontent.com/5ba5a12291cffd599244349dc62be6e2d6f34b8656b97d26d8a6f19bb9c78376/68747470733a2f2f696b2e696d6167656b69742e696f2f41646953617472696153656a6174692f66697273742e706e673f7570646174656441743d31373230323734343730343138"
+                            src="img/projects/flutter.webp"
                             alt='project'
 
                         />

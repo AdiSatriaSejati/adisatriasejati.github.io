@@ -36,7 +36,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Belajar%20Dasar%20Pemrograman%20Web.png?updatedAt=1729105707846" 
+                src="img/certifications/BelajarDasarPemrogramanWeb.webp" 
                 alt="Learn Basic Web Programming" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -49,7 +49,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Front%20End%20Development%20Libraries.png?updatedAt=1729106041951" 
+                src="img/certifications/FrontEndDevelopmentLibraries.webp" 
                 alt="Front End Development Libraries"
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -62,7 +62,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/cPanel%20User%20Interface%20Proficiency.png?updatedAt=1729143736944" 
+                src="img/certifications/CPanelUserInterfaceProficiency.webp" 
                 alt="cPanel User Interface Proficiency" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -75,7 +75,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Perencanaan%20Keuangan%20Sejak%20Dini.png?updatedAt=1729143914899" 
+                src="img/certifications/PerencanaanKeuanganSejakDini.webp" 
                 alt="Perencanaan Keuangan Sejak Dini" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -88,7 +88,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Akselerasi%20Transformasi%20Digital%20Untuk%20Mendukung%20Ekonomi%20Kreatif.png?updatedAt=1729144027028" 
+                src="img/certifications/AkselerasiTransformasiDigitalUntukMendukungEkonomiKreatif.webp" 
                 alt="Akselerasi Transformasi Digital" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -101,7 +101,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/PPKM%20(Pelatihan%20Pakar%20Kreatifitas%20Mahasiswa).png?updatedAt=1729144214630" 
+                src="img/certifications/PPKM(PelatihanPakarKreatifitasMahasiswa).webp" 
                 alt="PPM" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -114,7 +114,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Profesi%20Insinyur%20Dan%20Surat%20Tanda%20Registrasi%20Insinyur%20(STRI).png?updatedAt=1729186038221" 
+                src="img/certifications/ProfesiInsinyurDanSuratTandaRegistrasiInsinyur(STRI).webp" 
                 alt="STRI" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -127,7 +127,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Strategi%20Persiapan%20Diri%20&%20Aksi%20Untuk%20Meraih%20Pekerjaan.png?updatedAt=1729186038452" 
+                src="img/certifications/StrategiPersiapanDiri.webp" 
                 alt="SP&AS" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -140,7 +140,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/SERTIFIKAT%20TKJ.jpg?updatedAt=1729187200599" 
+                src="img/certifications/TKJ.webp" 
                 alt="TKJ" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -153,7 +153,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Vaksinasi%20Covid-19%20Moderna%20ke-2.png?updatedAt=1729187697481" 
+                src="img/certifications/VaksinasiCovid-19Modernake-2.webp" 
                 alt="vaccination" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -166,7 +166,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Algoritma%20dan%20Pemrograman%20Dasar.png?updatedAt=1729188459488" 
+                src="img/certifications/AlgoritmaDanPemrogramanDasar.webp" 
                 alt="ABP" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -179,7 +179,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Belajar%20GIT%20untuk%20Pemula.png?updatedAt=1729188739194" 
+                src="img/certifications/BelajarGITUntukPemula.webp" 
                 alt="GIT" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -192,7 +192,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Belajar%20JavaScript%20Dasar.png?updatedAt=1729188896747" 
+                src="img/certifications/BelajarJavaScriptDasar.webp" 
                 alt="JavaScript" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -205,7 +205,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/HTML%20&%20CSS%20Dasar.png?updatedAt=1729189192428" 
+                src="img/certifications/HTML&CSS.webp" 
                 alt="HTML-CSS" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -218,7 +218,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Mahir%20menggunakan%20Text%20Editor%20buat%20Pemula.png?updatedAt=1729189551828" 
+                src="img/certifications/MahirMenggunakanTextEditorBuatPemula.webp" 
                 alt="IDE" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -231,7 +231,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Membangun%20Frontend%20dengan%20Jquery,%20Library%20Js%20Legendaris.png?updatedAt=1729190924788" 
+                src="img/certifications/MembangunFrontenddenganJquery.webp" 
                 alt="Legendary Js Library" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -244,7 +244,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Mengenal%20Pemrograman%20komputer.png?updatedAt=1729190924792" 
+                src="img/certifications/MengenalPemrogramanKomputer.webp" 
                 alt="Get to know programming" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -257,7 +257,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Pengenalan%20Database%20Menggunakan%20MySQL.png?updatedAt=1729190924856" 
+                src="img/certifications/PemrogramanPythonuntukPemula.webp" 
                 alt="Python for Beginners" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -270,7 +270,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Pemrograman%20Python%20untuk%20Pemula.png?updatedAt=1729190924864" 
+                src="img/certifications/PengenalanDatabaseMenggunakanMySQL.webp" 
                 alt="MySQL Introduction" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -309,7 +309,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="https://ik.imagekit.io/AdiSatriaSejati/Databases%20System%20IAII.png?updatedAt=1729191519415" 
+                src="img/certifications/DatabasesSystemIAII.webp" 
                 alt="Database System IAII" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
