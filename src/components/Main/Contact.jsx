@@ -46,7 +46,7 @@ const Contact = () => (
                     <span></span>
                     <span></span>
                     <span></span>
-                    <span className="fab fas fa-envelope"></span>
+                    <span className="fa fas fa-envelope"></span>
                 </div>
                 <div className="text">
                     Gmail
