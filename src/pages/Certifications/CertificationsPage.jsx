@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import './CertificationsPage.css'
 import HeaderPage from '../../components/Header/HeaderPage';
 import Footer from '../../components/Footer/Footer';
-import ParticleBackground from "../../components/ParticlesBg/ParticleBackground";
 import ScrollToTop from '../../components/ScrollToTop/ScrollToTop';
-import Accordion from './Accordion'
 import { FormattedMessage } from 'react-intl';
+
+// Lazy load ParticleBackground and Accordion components
+const ParticleBackground = React.lazy(() => import('../../components/ParticlesBg/ParticleBackground'));
+const Accordion = React.lazy(() => import('./Accordion'))
 
 const Certifications = () => {
   return (
@@ -13,7 +15,9 @@ const Certifications = () => {
 
       <HeaderPage />
 
-      <ParticleBackground />
+      <Suspense fallback={<div>Loading...</div>}>
+        <ParticleBackground />
+      </Suspense>
 
       <main className="certifications-page">
       <section className="sertifikasi" id="sertifikasi">

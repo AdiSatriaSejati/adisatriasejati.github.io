@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Routes } from "react-router-dom";
 import './App.css';
 import DOMPurify from 'dompurify';
@@ -87,7 +87,7 @@ function App() {
         <>
             <RouterScrollTop />
             <MusicPlayer />
-            <Cursor /> {}
+            <Cursor />
             {loading ? (
                 <div className='loading-pag'>
                     <div className="loader">
@@ -103,7 +103,7 @@ function App() {
                 </Routes>
             )}
         </>
-    )
+    );
 }
 
 export default App;
