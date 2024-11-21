@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 
-function Accordion(props) {
+const Accordion = memo((props) => {
     const [setActive, setActiveState] = useState("");
 
     function activeAcordion() {
@@ -20,6 +20,6 @@ function Accordion(props) {
             </div>
         </div>
     )
-}
+});
 
-export default Accordion
+export default Accordion;
