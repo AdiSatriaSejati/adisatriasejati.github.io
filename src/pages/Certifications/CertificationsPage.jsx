@@ -62,7 +62,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="img/certifications/CPanelUserInterfaceProficiency.webp" 
+                src="img/certifications/cPanelUserInterfaceProficiency.webp" 
                 alt="cPanel User Interface Proficiency" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -218,7 +218,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="img/certifications/MahirMenggunakanTextEditorBuatPemula.webp" 
+                src="img/certifications/MahirmenggunakanTextEditorbuatPemula.webp" 
                 alt="IDE" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
@@ -244,7 +244,7 @@ const Certifications = () => {
                     />
                 </h3>
                 <img 
-                src="img/certifications/MengenalPemrogramanKomputer.webp" 
+                src="img/certifications/MengenalPemrogramankomputer.webp" 
                 alt="Get to know programming" 
                 style={{ width: '100%', height: 'auto' }} 
                 />
