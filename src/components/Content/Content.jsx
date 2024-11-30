@@ -19,7 +19,7 @@ const Content = () => (
                     <FormattedMessage
                         id='greeting'
                         defaultMessage='Hello'
-                    /><span> <img src="https://github.com/AdiSatriaSejati/Home/blob/main/assets/images/Hand.gif?raw=true" alt="gif" width="45px" /> ,</span>
+                    /><span> <img src="https://raw.githubusercontent.com/jigar-sable/next-portfolio/refs/heads/main/public/waving-hand.gif" alt="gif" width="45px" /> ,</span>
                 </p>
                 <h1 data-aos="fade-up" data-aos-delay="800">
                     <FormattedMessage
