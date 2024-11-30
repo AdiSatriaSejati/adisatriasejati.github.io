@@ -20,11 +20,12 @@ body.dark .btn-codigo {
 }
 body.light .btn-codigo {
   border: 2px solid var(--black);
+  color: var(--black);
 }
 
 body.dark .btn-codigo:hover {
   background: var(--white);
-  color: var(--black);
+  color: var(--white);
 }
 
 /********************** header **********************/
