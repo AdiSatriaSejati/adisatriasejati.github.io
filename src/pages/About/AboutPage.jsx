@@ -195,7 +195,6 @@ const About = () => {
                   defaultMessage='Experience'
                 />
               </h2>
-              {/* 
               <div className="timeline">
               <div className="container right">
                 <div className="content">
@@ -221,16 +220,15 @@ const About = () => {
                       />
                     </p>
                     <img 
-                      src="https://ik.imagekit.io/AdiSatriaSejati/PT.PLN%20(Persero).jpg?updatedAt=1730373562936"
+                      src="img/about/experience/PT.PLN-(Persero).webp"
                       alt="Surat-Keterangan"
                       className="imagecertifications"/>
                   </div>
                 </div>
               </div>
               </div>
-              */}
               <div className="timeline">
-              <div className="container right">
+              <div className="container left">
                 <div className="content">
                   <div className="tag">
                     <h2>
@@ -262,7 +260,7 @@ const About = () => {
               </div>
               </div>
               <div className="timeline">
-              <div className="container left">
+              <div className="container right">
                 <div className="content">
                   <div className="tag">
                     <h2>
