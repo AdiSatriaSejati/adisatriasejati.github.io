@@ -166,7 +166,7 @@ const About = () => {
                       />
                     </h3>
                     <img 
-                        src="img/about/education/bsi.webp"
+                        src="img/about/education/BSI.webp"
                         alt="Logo Bina Sarana Informatika"
                         className="logo-bsi"/>
                     <p>
