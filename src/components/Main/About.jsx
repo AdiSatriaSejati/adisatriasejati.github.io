@@ -114,6 +114,10 @@ const About = () => (
                         <h5>JavaScript</h5>
                     </div>
                     <div>
+                        <img alt="Dart" className="icons-skils" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" />
+                        <h5>Dart</h5>
+                    </div>
+                    <div>
                         <img alt="Sass" className="icons-skils" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" />
                         <h5>Sass</h5>
                     </div>
@@ -128,6 +132,10 @@ const About = () => (
                     <div>
                         <img alt="React" className="icons-skils" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
                         <h5>React</h5>
+                    </div>
+                    <div>
+                        <img alt="Flutter" className="icons-skils" src="https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/flutter/flutter-original.svg" />
+                        <h5>Flutter</h5>
                     </div>
                 </div>
                 <h4>Back-End</h4>
@@ -185,12 +193,16 @@ const About = () => (
                         <h5>Git</h5>
                     </div>
                     <div>
-                        <img alt="virtualbox" className="icons-skils" src="https://www.vectorlogo.zone/logos/virtualbox/virtualbox-icon.svg" title="VirtualBox" />
-                        <h5>VirtualBox</h5>
+                        <img alt="Postman" className="icons-skils" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" title="Postman" />
+                        <h5>Postman</h5>
                     </div>
                     <div>
                         <img alt="github" className="icons-skils" src="https://www.svgrepo.com/show/475654/github-color.svg" title="GitHub" />
                         <h5>GitHub</h5>
+                    </div>
+                    <div>
+                        <img alt="virtualbox" className="icons-skils" src="https://www.vectorlogo.zone/logos/virtualbox/virtualbox-icon.svg" title="VirtualBox" />
+                        <h5>VirtualBox</h5>
                     </div>
                     <div>
                         <img alt="obsstudio" className="icons-skils" src="https://raw.githubusercontent.com/obsproject/obs-studio/34735be09441101217c1efc625b1b8d32fccac65/UI/cmake/linux/icons/obs-logo-scalable.svg" title="OBS" />
@@ -201,12 +213,20 @@ const About = () => (
                         <h5>Android Studio</h5>
                     </div>
                     <div>
-                        <img alt="Gimp" className="icons-skils" src="https://ik.imagekit.io/AdiSatriaSejati/gimp-logo-editor-2-svgrepo-com.svg?updatedAt=1729683118004" title="Gimp" id="Gimp" />
+                        <img alt="Gimp" className="icons-skils" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gimp/gimp-original.svg" title="Gimp" id="Gimp" />
                         <h5>Gimp</h5>
                     </div>
                     <div>
                         <img alt="Filmora" className="icons-skils" src="https://ik.imagekit.io/AdiSatriaSejati/filmora-logo-icon.svg?updatedAt=1729202334732" title="Filmora" />
                         <h5>Filmora</h5>
+                    </div>
+                    <div>
+                        <img alt="Photoshop" className="icons-skils" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" title="Adobe Photoshop" />
+                        <h5>Adobe Photoshop</h5>
+                    </div>
+                    <div>
+                        <img alt="PremierePro" className="icons-skils" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-original.svg" title="Adobe Premiere Pro" />
+                        <h5>Adobe Premiere Pro</h5>
                     </div>
                     <div>
                         <img alt="Claude" className="icons-skils" src="https://ik.imagekit.io/AdiSatriaSejati/claude-ai-icon.svg?updatedAt=1729096683479" title="Claude-AI" />
@@ -231,6 +251,10 @@ const About = () => (
                     <div>
                         <img alt="ERP-System" className="icons-skils" src="https://ik.imagekit.io/AdiSatriaSejati/erp_9518635.png?updatedAt=1729205945128" title="ERP System" />
                         <h5>ERP System</h5>
+                    </div>
+                    <div>
+                        <img alt="Vercel" className="icons-skils" src="https://github.com/devicons/devicon/raw/master/icons/vercel/vercel-original.svg" title="Vercel" />
+                        <h5>Vercel</h5>
                     </div>
                 </div>
                 <h4>
