@@ -78,7 +78,7 @@ const About = () => {
                 <p>
                   <FormattedMessage
                     id='about-info-3'
-                    defaultMessage="As a developer, I had valuable experience during my internship at PT Leholeh Rasa Nusantara Jaya. I contributed to the development and documentation of APIs for the Leholeh.id marketplace system, including ensuring smooth integration between the frontend and backend, optimizing database query performance, and improving system security using Laravel Sanctum. This experience strengthens my ability to manage modern technology systems to support business needs."
+                    defaultMessage="One of my significant experiences was joining PT Leholeh Rasa Nusantara Jaya, a startup company that focuses on the marketplace of Indonesian souvenirs. In the internship program, I contributed to the development and documentation of APIs for the Leholeh.id marketplace. My tasks included the implementation of Laravel-based APIs, MySQL database management, and integration of third-party services such as payment gateways, all of which effectively supported business operations."
                   />
                 </p>
 
