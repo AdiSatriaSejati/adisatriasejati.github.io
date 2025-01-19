@@ -18,7 +18,7 @@
     
     "im": "Siapa Saya",
     "description": "Nama saya Adi Satria Sejati dan saya adalah seorang Full-Stack Developer.",
-    "my-description": "Mahasiswa Sistem Informasi yang berdedikasi dengan pengalaman beragam di bidang teknologi dan administrasi. Memiliki keahlian dalam mengelola toko online, administrasi data, dan layanan pelanggan. Mencari kesempatan untuk mengaplikasikan pengetahuan akademis dan pengalaman praktis dalam peran teknologi informasi yang menantang.",
+    "my-description": "Mahasiswa Diploma 3 Sistem Informasi dengan pengalaman dalam administrasi e-commerce, IT support, dan web development. Memiliki kemampuan dalam mengelola marketplace, optimasi konten produk, serta pemahaman sistem ERP. Terampil dalam penggunaan Laravel, MySQL, dan GitHub untuk pengelolaan proyek perangkat lunak. Terbiasa bekerja secara mandiri maupun dalam tim dalam lingkungan kerja berbasis remote atau hybrid.",
     "years": "Usia: ",
     "Hobbies": "Hobi: ",
     "my-Hobbies": "Biliar, Bulu Tangkis, Bersepeda, Catur, Futsal & Pemrograman",
@@ -72,10 +72,10 @@
     "footer-info": "Halaman yang dibuat oleh AdiSatriaSejati",
 
     
-    "about-info-1": "Hai, saya Adi Satria Sejati, mahasiswa Sistem Informasi di Universitas Bina Sarana Informatika dengan IPK 3.73. Saya memiliki ketertarikan yang besar di dunia teknologi informasi, yang berawal dari latar belakang pendidikan SMK Teknik Komputer dan Jaringan. Pengalaman magang saya di PT PLN membuka wawasan saya tentang penerapan teknologi di lingkungan perusahaan.",
-    "about-info-2": "Saya menganggap diri saya sebagai seorang yang adaptif dan berdedikasi, terbukti dari perjalanan karir yang beragam - dari menjadi driver Gojek hingga mengelola operasi e-commerce. Pengalaman terkini saya di PT. Musika Indonesia Jaya telah mempertajam kemampuan saya dalam mengelola tujuh platform e-commerce sekaligus, mengoptimalkan konten digital, dan mengkoordinasikan proses bisnis lintas departemen.",
-    "about-info-3": "Sebagai pengembang, saya menguasai berbagai bahasa pemrograman seperti PHP, HTML, CSS, JavaScript, dan Python, serta familiar dengan framework modern seperti Flutter, CodeIgniter, Laravel dan lain-lain. Saya selalu berusaha mengembangkan diri dan mengikuti perkembangan teknologi terbaru, yang tercermin dari partisipasi aktif saya dalam berbagai seminar dan webinar teknologi.",
-    "about-info-4": "Saya percaya bahwa kombinasi antara pengetahuan teknis dan pengalaman praktis dalam dunia bisnis membuat saya memiliki perspektif unik dalam menghadapi tantangan di bidang teknologi informasi. Saat ini, saya terus mengasah kemampuan melalui pendidikan formal sambil aktif mengerjakan proyek-proyek pengembangan website untuk memperkaya portfolio saya.",
+    "about-info-1": "Hai, saya Adi Satria Sejati, mahasiswa Sistem Informasi di Universitas Bina Sarana Informatika dengan IPK 3.73. Latar belakang pendidikan saya di SMK Teknik Komputer dan Jaringan serta pengalaman magang di PT PLN (Persero) membuka wawasan saya tentang penerapan teknologi di berbagai sektor, terutama dalam pengelolaan sumber daya manusia dan pengembangan sistem informasi.",
+    "about-info-2": "Saya adalah individu yang adaptif dan berdedikasi, dengan pengalaman profesional yang beragam - mulai dari menjadi driver hingga bekerja sebagai Admin Penjualan dan E-Commerce. Selama bekerja di PT. Musika Indonesia Jaya, saya mengelola tujuh platform e-commerce secara simultan, mengoptimalkan konten produk, serta memimpin koordinasi lintas departemen untuk memastikan kelancaran operasional dan kepuasan pelanggan.",
+    "about-info-3": "Sebagai seorang pengembang, saya memiliki pengalaman berharga selama magang di PT. Leholeh Rasa Nusantara Jaya. Saya berkontribusi dalam pengembangan dan dokumentasi API untuk sistem marketplace Leholeh.id, termasuk memastikan integrasi yang lancar antara frontend dan backend, mengoptimalkan performa query database, dan meningkatkan keamanan sistem menggunakan Laravel Sanctum. Pengalaman ini memperkuat kemampuan saya dalam mengelola sistem teknologi modern untuk mendukung kebutuhan bisnis.",
+    "about-info-4": "Saya percaya bahwa kombinasi pengetahuan teknis, pengalaman praktis, dan kemampuan manajemen membuat saya mampu menghadapi tantangan di dunia teknologi informasi. Saat ini, saya terus mengasah keterampilan melalui pendidikan formal, sambil aktif mengerjakan proyek pengembangan website dan berpartisipasi dalam seminar teknologi untuk memperluas wawasan dan memperkaya portfolio saya.",
     "btn-cv": "Unduh CV",
     
     "education": "Pendidikan",

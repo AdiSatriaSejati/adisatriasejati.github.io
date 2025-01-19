@@ -33,7 +33,7 @@ const About = () => (
                 <p>
                     <FormattedMessage
                         id='my-description'
-                        defaultMessage='Dedicated Information Systems student with diverse experience in technology and administration. Expertise in managing online stores, data administration, and customer service. Seeking an opportunity to apply academic knowledge and practical experience in a challenging information technology role.'
+                        defaultMessage='Diploma 3 Information Systems student with experience in e-commerce administration, IT support, and web development. Having the ability to manage marketplaces, product content optimization, and understanding of ERP systems. Skilled in using Laravel, MySQL, and GitHub for software project management. Accustomed to working independently or in a team in a remote or hybrid work environment.'
                     />
                 </p>
                 <ul>
@@ -45,7 +45,7 @@ const About = () => (
                                     defaultMessage='Age:'
                                 />
                             </span>
-                            24
+                            25
                         </p>
                     </li>
                     <li>

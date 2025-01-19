@@ -63,7 +63,7 @@ const About = () => {
               <p>
                 <FormattedMessage
                   id='about-info-1'
-                  defaultMessage="Hi, I am Adi Satria Sejati, an Information Systems student at Bina Sarana Informatika University with a GPA of 3.73. I have a great interest in the world of information technology, which starts from the educational background of SMK Computer and Network Engineering. My internship experience at PT PLN opened my insight into the application of technology in a corporate environment."
+                  defaultMessage="Hi, I am Adi Satria Sejati, an Information Systems student at Bina Sarana Informatika University with a GPA of 3.73. My educational background in SMK Computer and Network Engineering and internship experience at PT PLN (Persero) opened my insight into the application of technology in various sectors, especially in human resource management and information system development."
                 />
               </p>
 
@@ -71,21 +71,21 @@ const About = () => {
                 <p>
                   <FormattedMessage
                     id='about-info-2'
-                    defaultMessage='I consider myself an adaptive and dedicated person, as evidenced by my diverse career journey - from being a Gojek driver to managing e-commerce operations. My recent experience at PT Musika Indonesia Jaya has sharpened my skills in managing seven e-commerce platforms at once, optimizing digital content, and coordinating business processes across departments.'
+                    defaultMessage='I am an adaptive and dedicated individual, with diverse professional experiences - from being a driver to working as a Sales and E-Commerce Admin. During my time at PT Musika Indonesia Jaya, I managed seven e-commerce platforms simultaneously, optimized product content, and led cross-departmental coordination to ensure smooth operations and customer satisfaction.'
                   />
                 </p>
 
                 <p>
                   <FormattedMessage
                     id='about-info-3'
-                    defaultMessage="As a developer, I am proficient in various programming languages such as PHP, HTML, CSS, JavaScript, and Python, and familiar with modern frameworks such as Flutter, CodeIgniter, Laravel and others. I always strive to develop myself and keep up with the latest technology, which is reflected in my active participation in various technology seminars and webinars."
+                    defaultMessage="As a developer, I had valuable experience during my internship at PT Leholeh Rasa Nusantara Jaya. I contributed to the development and documentation of APIs for the Leholeh.id marketplace system, including ensuring smooth integration between the frontend and backend, optimizing database query performance, and improving system security using Laravel Sanctum. This experience strengthens my ability to manage modern technology systems to support business needs."
                   />
                 </p>
 
                 <p>
                   <FormattedMessage
                     id='about-info-4'
-                    defaultMessage="I believe that the combination of technical knowledge and practical experience in the business world gives me a unique perspective in facing challenges in the field of information technology. Currently, I continue to hone my skills through formal education while actively working on website development projects to enrich my portfolio."
+                    defaultMessage="I believe that the combination of technical knowledge, practical experience, and management ability makes me capable of facing challenges in the world of information technology. Currently, I continue to hone my skills through formal education, while actively working on website development projects and participating in technology seminars to broaden my horizons and enrich my portfolio."
                   />
                 </p>
               </div>
