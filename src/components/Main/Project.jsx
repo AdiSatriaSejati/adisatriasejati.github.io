@@ -103,14 +103,11 @@ const Project = () => {
                                 <span> -</span> JavaScript
                                 <span> -</span> CodeIgniter 4
                                 <span> -</span> Bootstrap 5
-                                <span> -</span> Modernize Free Bootstrap 5 Admin Template
                                 <span> -</span> APEXCHARTS
                                 <span> -</span> Tabler Icons
                                 <span> -</span> Endroid QR Code Generator
-                                <span> -</span> Mebjas Html5-QRCode Scanner
                                 <span> -</span> Composer
                                 <span> -</span> MySQL
-                                <span> -</span> Laragon
                             </p>
                             <a href="https://github.com/AdiSatriaSejati/CI4_E-LibraryAradh" className="custom-btn btn-codigo" target="_blank" rel="noopener noreferrer">Repository</a>
                         </div>
@@ -129,34 +126,36 @@ const Project = () => {
                             <p className="tecnologias">
                                 Dart
                                 <span> -</span> Flutter
-                                <span> -</span> Go_router
                                 <span> -</span> Audioplayers
-                                <span> -</span> Logging
-                                <span> -</span> Provider
-                                <span> -</span> Shared_preferences
                                 <span> -</span> Carousel_slider
-                                <span> -</span> Google_mobile_ads
                                 <span> -</span> Flame
-                                <span> -</span> Flame_audio
-                                <span> -</span> Infinite_scroll_pagination
-                                <span> -</span> Cached_network_image
-                                <span> -</span> Flutter_cache_manager
-                                <span> -</span> Flutter_image_compress
-                                <span> -</span> Flutter_screenutil
                                 <span> -</span> Card_swiper
-                                <span> -</span> Awesome_dialog
                                 <span> -</span> Lottie
-                                <span> -</span> Mime
-                                <span> -</span> Cherry_toast
-                                <span> -</span> Flutter_easyloading
-                                <span> -</span> Url_launcher
-                                <span> -</span> Package_info_plus
-                                <span> -</span> Dio
-                                <span> -</span> Connectivity_plus
-                                <span> -</span> Animated_text_kit
-                                <span> -</span> Mixpanel_flutter
                             </p>
                             <a href="https://github.com/AdiSatriaSejati/flutter_kelompok_1" className="custom-btn btn-codigo" target="_blank" rel="noopener noreferrer">Repository</a>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide className='caja'>
+                        <img
+                            src="img/projects/vigenesia.webp"
+                            alt='project'
+
+                        />
+                        <div className="content">
+                            <h3>Vigenesia</h3>
+                            <p>
+                                Group Project
+                            </p>
+                            <p className="tecnologias">
+                                Flutter
+                                <span> -</span> Dart
+                                <span> -</span> CodeIgniter_3
+                                <span> -</span> PHP
+                                <span> -</span> MySQL
+                                <span> -</span> REST API
+                            </p>
+                            <a href="https://github.com/AdiSatriaSejati/Vigenesia-API" className="custom-btn btn-codigo" target="_blank" rel="noopener noreferrer">Repository API</a>
+                            <a href="https://github.com/AdiSatriaSejati/Vigenesia-Flutter" className="custom-btn btn-codigo" target="_blank" rel="noopener noreferrer">Repository</a>
                         </div>
                     </SwiperSlide>
                 </Swiper>
