@@ -1,10 +1,6 @@
 import React from 'react';
 import './Footer.css';
 
-/* Multi idioma */
-import {FormattedMessage} from 'react-intl';
-
-
 const Footer = () =>{
     const currentYear = new Date().getFullYear();
 

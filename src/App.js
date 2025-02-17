@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Routes } from "react-router-dom";
 import './App.css';
-import DOMPurify from 'dompurify';
 import OnlineTracker from './components/OnlineTracking/OnlineTracker';
+import { MusicProvider } from './context/MusicContext';
 
 /* Pages */
 import Home from "./pages/Home/HomePage";
@@ -94,7 +94,7 @@ function App() {
     }, []);
 
     return (
-        <>
+        <MusicProvider>
             <RouterScrollTop />
             <Cursor />
             <OnlineTracker />
@@ -112,7 +112,7 @@ function App() {
                     <Route path="/project" element={<Project />} />
                 </Routes>
             )}
-        </>
+        </MusicProvider>
     );
 }
 

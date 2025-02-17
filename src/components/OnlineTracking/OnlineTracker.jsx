@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, onValue, set } from 'firebase/database';
-import { getAnalytics } from "firebase/analytics";
+import { getDatabase, ref, onValue, set, serverTimestamp } from 'firebase/database';
 import './OnlineTracker.css';
 
 const firebaseConfig = {
@@ -24,7 +23,6 @@ const OnlineTracker = () => {
         try {
             // Inisialisasi Firebase sekali saja
             const app = initializeApp(firebaseConfig);
-            const analytics = getAnalytics(app);
             const database = getDatabase(app);
             setDb(database);
         } catch (error) {
@@ -35,8 +33,8 @@ const OnlineTracker = () => {
     useEffect(() => {
         if (!db) return;
 
-        // Generate ID unik untuk user
-        const userId = Math.random().toString(36).substr(2, 9);
+        // Generate unique ID untuk setiap sesi
+        const sessionId = Math.random().toString(36).substr(2, 9);
         
         // Dapatkan lokasi user menggunakan ipapi.co
         const getUserLocation = async () => {
@@ -45,13 +43,15 @@ const OnlineTracker = () => {
                 const data = await response.json();
                 setUserLocation(data.city);
                 
-                // Update data user di Firebase
-                const userRef = ref(db, `online_users/${userId}`);
+                // Update data user dengan timestamp server
+                const userRef = ref(db, `online_users/${sessionId}`);
                 await set(userRef, {
-                    timestamp: Date.now(),
+                    timestamp: serverTimestamp(),
+                    lastPing: Date.now(),
                     location: data.city,
                     country: data.country_name,
-                    lastActive: new Date().toISOString()
+                    browser: navigator.userAgent,
+                    status: 'online'
                 });
             } catch (error) {
                 console.error('Error getting location:', error);
@@ -60,38 +60,47 @@ const OnlineTracker = () => {
 
         getUserLocation();
 
-        // Listen untuk perubahan jumlah user online
+        // Realtime listener untuk user online
         const usersRef = ref(db, 'online_users');
         const unsubscribe = onValue(usersRef, (snapshot) => {
             if (snapshot.exists()) {
                 const users = snapshot.val();
-                const activeUsers = Object.values(users).filter(user => 
-                    Date.now() - user.timestamp < 300000 // 5 menit timeout
-                );
+                const now = Date.now();
+                const activeUsers = Object.values(users).filter(user => {
+                    // Menganggap user online jika ping terakhir < 10 detik
+                    return now - user.lastPing < 10000;
+                });
                 setOnlineUsers(activeUsers.length);
+            } else {
+                setOnlineUsers(0);
             }
         });
 
-        // Update status user setiap 30 detik
+        // Update status setiap 5 detik
         const intervalId = setInterval(async () => {
-            if (userLocation) {
-                const userRef = ref(db, `online_users/${userId}`);
-                await set(userRef, {
-                    timestamp: Date.now(),
-                    location: userLocation,
-                    lastActive: new Date().toISOString()
-                });
-            }
-        }, 30000);
+            const userRef = ref(db, `online_users/${sessionId}`);
+            await set(userRef, {
+                timestamp: serverTimestamp(),
+                lastPing: Date.now(),
+                location: userLocation,
+                status: 'online'
+            });
+        }, 5000);
 
         // Cleanup saat component unmount
         return () => {
-            if (db) {
-                const userRef = ref(db, `online_users/${userId}`);
-                set(userRef, null);
-                unsubscribe();
-                clearInterval(intervalId);
-            }
+            const userRef = ref(db, `online_users/${sessionId}`);
+            set(userRef, {
+                status: 'offline',
+                lastPing: Date.now()
+            }).then(() => {
+                // Hapus data user setelah 10 detik
+                setTimeout(() => {
+                    set(userRef, null);
+                }, 10000);
+            });
+            unsubscribe();
+            clearInterval(intervalId);
         };
     }, [db, userLocation]);
 

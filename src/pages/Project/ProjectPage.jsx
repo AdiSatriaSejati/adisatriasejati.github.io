@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './ProjectPage.css';
 /* React router */
-import { NavLink } from 'react-router-dom';
 
 /* Componet */
 import HeaderPage from '../../components/Header/HeaderPage';

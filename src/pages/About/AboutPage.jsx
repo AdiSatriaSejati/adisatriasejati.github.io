@@ -11,7 +11,6 @@ import cv from '../../cv/cv.pdf';
 
 const About = () => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const imgUrl = "https://ik.imagekit.io/AdiSatriaSejati/Aing.jpg?updatedAt=1729184207940";
 
   const toggleReadMore = () => {
     setIsExpanded(!isExpanded);

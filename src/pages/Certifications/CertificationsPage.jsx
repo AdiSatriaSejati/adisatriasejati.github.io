@@ -7,7 +7,6 @@ import { FormattedMessage } from 'react-intl';
 
 // Lazy load ParticleBackground and Accordion components
 const ParticleBackground = React.lazy(() => import('../../components/ParticlesBg/ParticleBackground'));
-const Accordion = React.lazy(() => import('./Accordion'))
 
 const Certifications = () => {
   return (
