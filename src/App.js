@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route, Routes } from "react-router-dom";
 import './App.css';
 import DOMPurify from 'dompurify';
+import OnlineTracker from './components/OnlineTracking/OnlineTracker';
 
 /* Pages */
 import Home from "./pages/Home/HomePage";
@@ -96,6 +97,7 @@ function App() {
         <>
             <RouterScrollTop />
             <Cursor />
+            <OnlineTracker />
             {loading ? (
                 <div className='loading-pag'>
                     <div className="loader">

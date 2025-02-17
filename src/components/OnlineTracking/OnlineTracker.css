@@ -1,0 +1,83 @@
+.online-tracker {
+    position: fixed;
+    bottom: 20px; /* Jarak dari bawah */
+    left: 20px; /* Jarak dari kiri */
+    z-index: 1000; /* Pastikan berada di atas elemen lain */
+}
+
+.tracker-container {
+    background: rgba(255, 255, 255, 0.9); /* Latar belakang putih dengan transparansi */
+    padding: 10px 15px; /* Padding di dalam kontainer */
+    border-radius: 20px; /* Sudut membulat */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek kedalaman */
+    display: flex;
+    flex-direction: column; /* Susun elemen secara vertikal */
+    gap: 5px; /* Jarak antar elemen */
+    backdrop-filter: blur(5px); /* Efek blur di belakang */
+}
+
+.online-count {
+    display: flex;
+    align-items: center; /* Pusatkan secara vertikal */
+    gap: 8px; /* Jarak antara ikon dan teks */
+    font-size: 14px; /* Ukuran font */
+    color: #333; /* Warna teks */
+}
+
+.pulse {
+    width: 8px; /* Lebar lingkaran */
+    height: 8px; /* Tinggi lingkaran */
+    background-color: #4CAF50; /* Warna hijau */
+    border-radius: 50%; /* Bentuk lingkaran */
+    display: inline-block; /* Tampilkan sebagai elemen inline */
+    animation: pulse 1.5s infinite; /* Animasi pulse */
+}
+
+.location-info {
+    display: flex;
+    align-items: center; /* Pusatkan secara vertikal */
+    gap: 8px; /* Jarak antara ikon dan teks */
+    font-size: 12px; /* Ukuran font */
+    color: #666; /* Warna teks */
+}
+
+.location-info i {
+    color: var(--red); /* Warna ikon */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1); /* Ukuran awal */
+        opacity: 1; /* Opasitas awal */
+    }
+    50% {
+        transform: scale(1.2); /* Ukuran saat animasi */
+        opacity: 0.7; /* Opasitas saat animasi */
+    }
+    100% {
+        transform: scale(1); /* Ukuran akhir */
+        opacity: 1; /* Opasitas akhir */
+    }
+}
+
+/* Dark mode support */
+body.dark .tracker-container {
+    background: rgba(0, 0, 0, 0.8); /* Latar belakang hitam dengan transparansi */
+}
+
+body.dark .online-count,
+body.dark .location-info {
+    color: #fff; /* Warna teks putih untuk dark mode */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tracker-container {
+        padding: 8px 12px; /* Padding lebih kecil untuk layar kecil */
+    }
+    
+    .online-count,
+    .location-info {
+        font-size: 12px; /* Ukuran font lebih kecil untuk layar kecil */
+    }
+} 
