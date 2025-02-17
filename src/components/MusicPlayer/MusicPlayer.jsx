@@ -7,46 +7,74 @@ const MusicPlayer = () => {
     const hasInteractedRef = useRef(false);
 
     useEffect(() => {
-        // Setup audio
+        // Setup audio dengan konfigurasi untuk mobile
         audioRef.current.loop = true;
         audioRef.current.volume = 0.45;
+        audioRef.current.preload = 'auto';
+        audioRef.current.playsInline = true; // Penting untuk iOS
 
-        // Event listener untuk user interaction
-        const handleInteraction = () => {
+        const handleInteraction = async () => {
             if (!hasInteractedRef.current) {
                 hasInteractedRef.current = true;
-                audioRef.current.play().catch(() => {
-                    // Handle jika autoplay diblokir browser
-                    console.log('Autoplay blocked by browser');
-                });
-                setIsPlaying(true);
+                try {
+                    // Unlock audio context untuk mobile browsers
+                    if (typeof AudioContext !== 'undefined') {
+                        const audioContext = new AudioContext();
+                        await audioContext.resume();
+                    }
+                    
+                    // Play dengan promise handling
+                    const playPromise = audioRef.current.play();
+                    if (playPromise !== undefined) {
+                        playPromise
+                            .then(() => {
+                                setIsPlaying(true);
+                            })
+                            .catch(error => {
+                                console.log('Autoplay prevented:', error);
+                                setIsPlaying(false);
+                            });
+                    }
+                } catch (error) {
+                    console.log('Audio playback error:', error);
+                }
             }
         };
 
-        // Tambahkan event listeners untuk berbagai interaksi user
-        document.addEventListener('click', handleInteraction);
-        document.addEventListener('touchstart', handleInteraction);
-        document.addEventListener('keydown', handleInteraction);
-        document.addEventListener('scroll', handleInteraction);
+        // Event listeners khusus untuk mobile
+        const mobileEvents = ['touchstart', 'touchend'];
+        const allEvents = [...mobileEvents, 'click', 'keydown', 'scroll'];
 
-        // Cleanup function
+        allEvents.forEach(event => {
+            document.addEventListener(event, handleInteraction, { passive: true });
+        });
+
+        // Cleanup
         return () => {
             audioRef.current.pause();
             audioRef.current.currentTime = 0;
-            document.removeEventListener('click', handleInteraction);
-            document.removeEventListener('touchstart', handleInteraction);
-            document.removeEventListener('keydown', handleInteraction);
-            document.removeEventListener('scroll', handleInteraction);
+            allEvents.forEach(event => {
+                document.removeEventListener(event, handleInteraction);
+            });
         };
     }, []);
 
-    const toggleMusic = () => {
-        if (isPlaying) {
-            audioRef.current.pause();
-        } else {
-            audioRef.current.play();
+    const toggleMusic = async () => {
+        try {
+            if (isPlaying) {
+                await audioRef.current.pause();
+            } else {
+                // Unlock audio context saat tombol ditekan
+                if (typeof AudioContext !== 'undefined') {
+                    const audioContext = new AudioContext();
+                    await audioContext.resume();
+                }
+                await audioRef.current.play();
+            }
+            setIsPlaying(!isPlaying);
+        } catch (error) {
+            console.log('Toggle music error:', error);
         }
-        setIsPlaying(!isPlaying);
     };
 
     return (
