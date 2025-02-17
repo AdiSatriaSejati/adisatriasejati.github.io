@@ -12,6 +12,8 @@
     background: transparent;
     border: none;
     transition: transform 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .music-toggle:hover {
@@ -76,10 +78,19 @@ body.dark .music-toggle span {
         position: absolute;
         display: inline-flex;
         width: 3em;
+        padding: 10px;
+        margin: 5px;
     }
 
     .music-toggle span {
         width: 2px;
         margin-right: 1.5px;
+    }
+}
+
+/* Tambahan untuk devices dengan touch screen */
+@media (hover: none) {
+    .music-toggle:active {
+        transform: scale(0.95);
     }
 }
