@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, onValue, set, serverTimestamp, connectDatabaseEmulator } from 'firebase/database';
+import { getDatabase, ref, onValue, set, serverTimestamp } from 'firebase/database';
 import './OnlineTracker.css';
 
 // Pindahkan config ke .env
@@ -11,41 +11,33 @@ const firebaseConfig = {
     projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
     storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
     messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_FIREBASE_APP_ID,
-    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+    appId: process.env.REACT_APP_FIREBASE_APP_ID
 };
 
 const OnlineTracker = () => {
     const [onlineUsers, setOnlineUsers] = useState(0);
     const [userLocation, setUserLocation] = useState(null);
     const [db, setDb] = useState(null);
-    const [connectionError, setConnectionError] = useState(false);
 
-    // Inisialisasi Firebase dengan error handling yang lebih baik
+    // Inisialisasi Firebase
     useEffect(() => {
         try {
             const app = initializeApp(firebaseConfig);
             const database = getDatabase(app);
-            
-            // Gunakan emulator jika dalam mode development
-            if (process.env.NODE_ENV === 'development') {
-                connectDatabaseEmulator(database, 'localhost', 9000);
-            }
-            
             setDb(database);
         } catch (error) {
             console.error("Firebase initialization error:", error);
-            setConnectionError(true);
         }
     }, []);
 
-    // Fungsi untuk mendapatkan lokasi user
+    // Fungsi untuk mendapatkan lokasi user menggunakan API alternatif
     const getUserLocation = useCallback(async () => {
         try {
-            const response = await fetch('https://ipapi.co/json/', {
+            // Menggunakan API alternatif yang mendukung CORS
+            const response = await fetch('https://api.db-ip.com/v2/free/self', {
+                method: 'GET',
                 headers: {
-                    'Accept': 'application/json',
-                    'Cache-Control': 'no-cache'
+                    'Accept': 'application/json'
                 }
             });
             
@@ -53,12 +45,15 @@ const OnlineTracker = () => {
             
             const data = await response.json();
             return {
-                city: data.city,
-                country: data.country_name
+                city: data.city || 'Unknown City',
+                country: data.countryName || 'Unknown Country'
             };
         } catch (error) {
             console.error('Location fetch error:', error);
-            return null;
+            return {
+                city: 'Unknown City',
+                country: 'Unknown Country'
+            };
         }
     }, []);
 
@@ -68,11 +63,9 @@ const OnlineTracker = () => {
             await set(userRef, {
                 timestamp: serverTimestamp(),
                 lastPing: Date.now(),
-                location: locationData?.city || 'Unknown',
-                country: locationData?.country || 'Unknown',
-                browser: navigator.userAgent,
-                status: status,
-                connectionType: navigator.connection?.type || 'unknown'
+                location: locationData?.city || 'Unknown City',
+                country: locationData?.country || 'Unknown Country',
+                status: status
             });
         } catch (error) {
             console.error('Status update error:', error);
@@ -94,7 +87,7 @@ const OnlineTracker = () => {
                 const userRef = ref(db, `online_users/${sessionId}`);
                 await updateUserStatus(userRef, 'online', locationData);
 
-                // Realtime listener dengan error handling
+                // Realtime listener
                 const usersRef = ref(db, 'online_users');
                 unsubscribe = onValue(usersRef, (snapshot) => {
                     if (snapshot.exists()) {
@@ -107,18 +100,14 @@ const OnlineTracker = () => {
                     } else {
                         setOnlineUsers(0);
                     }
-                }, (error) => {
-                    console.error('Realtime listener error:', error);
-                    setConnectionError(true);
                 });
 
-                // Update interval dengan error handling
+                // Update interval
                 intervalId = setInterval(async () => {
                     await updateUserStatus(userRef, 'online', locationData);
                 }, 5000);
             } catch (error) {
                 console.error('Setup error:', error);
-                setConnectionError(true);
             }
         };
 
@@ -133,16 +122,12 @@ const OnlineTracker = () => {
             updateUserStatus(userRef, 'offline', null)
                 .then(() => {
                     setTimeout(() => {
-                        set(userRef, null).catch(console.error);
+                        set(userRef, null);
                     }, 10000);
                 })
                 .catch(console.error);
         };
     }, [db, getUserLocation, updateUserStatus]);
-
-    if (connectionError) {
-        return null; // Atau tampilkan pesan error yang sesuai
-    }
 
     return (
         <div className="online-tracker">
