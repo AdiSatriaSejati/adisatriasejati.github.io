@@ -2,48 +2,111 @@
 
 .footer {
     background: var(--white);
-    border-top: 3px solid  var(--white);
+    border-top: 3px solid var(--white);
     box-shadow: var(--box-shadow);
-    padding: 2rem 8% ;
+    padding: 2rem 8%;
 }
 
 .site-footer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 
-.site-footer .copyright{
+.site-footer .copyright {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.copyright-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 1.5rem;
-    padding: 2rem 0;
-}
-
-.redes-sociales{
-    padding: 2rem 0;
-}
-
-.redes-sociales a{
-    font-size: 3rem;
-    padding-left: 4rem;
     color: var(--black);
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
-.titulo .redes-sociales a{
-    padding: 2rem;
+.copyright-content::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    padding: 2px;
+    background: linear-gradient(45deg, var(--red), #ff6b6b);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.copyright-content i {
+    font-size: 1.8rem;
     color: var(--red);
 }
 
-@media (max-width: 570px) {
-    .footer{
-        padding: .4rem 5% ;
+.site-footer .redes-sociales {
+    display: flex;
+    gap: 2rem;
+}
+
+.site-footer .redes-sociales a {
+    font-size: 3rem;
+    color: var(--black);
+    transition: all 0.3s ease;
+}
+
+.site-footer .redes-sociales a:hover {
+    color: var(--red);
+    transform: translateY(-3px);
+}
+
+/* Dark mode styles */
+body.dark .copyright-content {
+    color: var(--white);
+}
+
+body.dark .site-footer .redes-sociales a {
+    color: var(--white);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .footer {
+        padding: 1.5rem 5%;
     }
 
-    .site-footer .copyright p{
-        font-size: 1.2rem;
+    .site-footer {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
     }
 
-    .site-footer .redes-sociales a{
+    .copyright-content {
+        font-size: 1.3rem;
+    }
+
+    .copyright-content i {
+        font-size: 1.6rem;
+    }
+
+    .site-footer .redes-sociales a {
         font-size: 2.5rem;
-        padding-left: 2rem;
-        color: var(--black);
     }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }

@@ -2,12 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import './MusicPlayer.css';
 
 const MusicPlayer = () => {
-    const [isPlaying, setIsPlaying] = useState(false); // Set default to false
+    const [isPlaying, setIsPlaying] = useState(false);
     const audioRef = useRef(new Audio(process.env.PUBLIC_URL + '/ambient.mp3'));
 
     useEffect(() => {
         // Setup audio
         audioRef.current.loop = true;
+        audioRef.current.volume = 0.45;
 
         // Cleanup function
         return () => {
@@ -28,10 +29,13 @@ const MusicPlayer = () => {
     return (
         <button 
             onClick={toggleMusic} 
-            className="music-toggle"
+            className={`music-toggle ${isPlaying ? 'active' : ''}`}
             aria-label={isPlaying ? "Pause music" : "Play music"}
         >
-            {isPlaying ? <i className="fas fa-pause"></i> : <i className="fas fa-play"></i>}
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
     );
 };

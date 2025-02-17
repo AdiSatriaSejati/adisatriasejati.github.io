@@ -7,8 +7,11 @@
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "ajv": "^8.17.1",
+    "ajv-keywords": "^5.1.0",
     "aos": "^2.3.4",
     "dompurify": "^3.1.7",
+    "gsap": "^3.12.7",
     "legendary-cursor": "^1.0.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -22,7 +25,8 @@
     "scrollreveal": "^4.0.9",
     "swiper": "^8.1.4",
     "three": "^0.171.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "react-typed": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

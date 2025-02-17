@@ -11,7 +11,6 @@ import Project from "./pages/Project/ProjectPage";
 
 /* Components */
 import RouterScrollTop from "./components/ScrollToTop/RouterScrollTop";
-import MusicPlayer from "./components/MusicPlayer/MusicPlayer"; // Import MusicPlayer
 import Cursor from "./components/Cursor/Cursor"; // Import Cursor component
 
 function App() {
@@ -72,6 +71,15 @@ function App() {
             event.preventDefault();
         });
 
+        // Inisialisasi audio context saat user berinteraksi pertama kali
+        const handleFirstInteraction = () => {
+            if (window.AudioContext || window.webkitAudioContext) {
+                document.removeEventListener('click', handleFirstInteraction);
+            }
+        };
+        
+        document.addEventListener('click', handleFirstInteraction);
+        
         return () => {
             document.removeEventListener('visibilitychange', function () {});
             document.removeEventListener('contextmenu', (event) => event.preventDefault());
@@ -80,13 +88,13 @@ function App() {
             document.removeEventListener('keydown', (event) => {
                 event.preventDefault();
             });
+            document.removeEventListener('click', handleFirstInteraction);
         };
     }, []);
 
     return (
         <>
             <RouterScrollTop />
-            <MusicPlayer />
             <Cursor />
             {loading ? (
                 <div className='loading-pag'>

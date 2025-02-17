@@ -36,15 +36,13 @@
 }
 
 #buttons {
-  display: inline-block;
-  position: fixed;
+  display:inline-flex;
+  position: absolute;
+  gap: 1rem;
 }
 
 #buttons img {
-  width: 30px;
-  height: auto;
-  margin-right: 1rem;
-  margin-top: -5px;
+  cursor: pointer;
 }
 
 .navbar img {

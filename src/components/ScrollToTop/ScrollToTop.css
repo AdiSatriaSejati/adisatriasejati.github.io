@@ -1,46 +1,104 @@
 /********************** Boton up **********************/
 
-.cm-up {
+.scroll-to-top {
   position: fixed;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  bottom: 70px;
-  right: 30px;
-  background: transparent;
+  bottom: 40px;
+  right: 40px;
+  z-index: 999;
   cursor: pointer;
-  z-index: 100;
+  background: transparent;
+  border: none;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.5s ease;
 }
 
-.cm-icon {
-  color: var(--red);
-  border: 5px solid var(--red);
-  font-size: 30px;
-  float: right;
+.scroll-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-circle {
+  position: relative;
   width: 50px;
   height: 50px;
+  background: transparent;
+  /* border: 2px solid var(--red); */
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.4s;
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
-.cm-up:hover {
-  transform: scale(1.1);
+.scroll-circle::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--red);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.3s ease;
 }
 
-/********** MQ **************/
+.scroll-circle i {
+  color: var(--red);
+  font-size: 20px;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
 
-@media (max-width: 570px) {
-  .cm-up {
-    height: 40px;
-    width: 40px;
+.scroll-circle:hover::before {
+  transform: scale(1);
+}
+
+.scroll-circle:hover i {
+  color: var(--red);
+  animation: bounceUp 0.6s ease infinite;
+}
+
+.progress-circle {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  transform: rotate(-90deg);
+}
+
+.progress-circle circle {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 2;
+  stroke-dasharray: 150;
+  stroke-dashoffset: 150;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+@keyframes bounceUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@media (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 20px;
+    right: 20px;
   }
 
-  .cm-icon {
-    font-size: 15px;
+  .scroll-circle {
     width: 40px;
     height: 40px;
+  }
+
+  .scroll-circle i {
+    font-size: 16px;
+  }
+
+  .progress-circle {
+    width: 38px;
+    height: 38px;
   }
 }

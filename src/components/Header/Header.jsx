@@ -13,6 +13,9 @@ import DarkMode from '../DarkMode/DarkMode';
 import { FormattedMessage } from "react-intl";
 import { langContext } from '../../context/Context';
 
+/* MusicPlayer */
+import MusicPlayer from '../MusicPlayer/MusicPlayer';
+
 const Header = () => {
     const idioma = useContext(langContext);
     const menuDesplegable = () => {
@@ -82,6 +85,7 @@ const Header = () => {
                     width="30" 
                     height="20" 
                     />
+                    <MusicPlayer />
                 </div>
             </nav>
             <div className="switch" id="switch">

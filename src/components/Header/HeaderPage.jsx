@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import MusicPlayer from "../MusicPlayer/MusicPlayer";
 import './Header.css';
 
 /* React router */
@@ -62,8 +63,21 @@ const HeaderPage = () => {
                     />
                 </NavLink>
                 <div id="buttons">
-                    <img onClick={() => idioma.selectLanguage('en-EN')} src="https://ik.imagekit.io/AdiSatriaSejati/English.webp?updatedAt=1684558198256" alt="English" />
-                    <img onClick={() => idioma.selectLanguage('id-ID')} src="https://ik.imagekit.io/AdiSatriaSejati/Indonesia.webp?updatedAt=1684558198225" alt="Indonesian" />
+                    <img 
+                    onClick={() => idioma.selectLanguage('en-EN')} 
+                    src="img/language/english.webp" 
+                    alt="English" 
+                    width="30" 
+                    height="20" 
+                    />
+                    <img 
+                    onClick={() => idioma.selectLanguage('id-ID')} 
+                    src="img/language/indonesia.webp" 
+                    alt="Indonesian" 
+                    width="30" 
+                    height="20" 
+                    />
+                    <MusicPlayer />
                 </div>
             </nav>
             <div className="switch" id="switch">
