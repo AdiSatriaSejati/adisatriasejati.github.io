@@ -11,6 +11,11 @@
     align-items: flex-end;
     background: transparent;
     border: none;
+    transition: transform 0.3s ease;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1);
 }
 
 .music-toggle span {
@@ -21,6 +26,7 @@
     opacity: 0.5;
     transform: translateY(50%);
     height: 0.9em;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
 }
 
 body.dark .music-toggle span {
@@ -51,6 +57,17 @@ body.dark .music-toggle span {
     0% { transform: translateY(50%); }
     50% { transform: translateY(5%); }
     100% { transform: translateY(50%); }
+}
+
+/* Tambahkan animasi pulse saat musik dimulai */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.music-toggle.active {
+    animation: pulse 2s infinite;
 }
 
 @media (max-width: 570px) {
