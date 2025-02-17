@@ -88,7 +88,7 @@ const Project = () => {
                     </SwiperSlide>
                     <SwiperSlide className='caja'>
                         <img
-                            src="img/projects/CI4.gif"
+                            src="img/projects/CI4.webp"
                             alt='project'
 
                         />

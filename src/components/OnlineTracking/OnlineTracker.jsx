@@ -1,9 +1,17 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, onValue, set, serverTimestamp } from 'firebase/database';
+import { 
+    getDatabase, 
+    ref, 
+    onValue, 
+    set, 
+    serverTimestamp,
+    connectDatabaseEmulator,
+    goOnline,
+    goOffline 
+} from 'firebase/database';
 import './OnlineTracker.css';
 
-// Pindahkan config ke .env
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -14,26 +22,63 @@ const firebaseConfig = {
     appId: process.env.REACT_APP_FIREBASE_APP_ID
 };
 
+const MAX_RETRIES = 3;
+const RETRY_DELAY = 2000;
+
 const OnlineTracker = () => {
     const [onlineUsers, setOnlineUsers] = useState(0);
     const [userLocation, setUserLocation] = useState(null);
     const [db, setDb] = useState(null);
+    const [connectionAttempts, setConnectionAttempts] = useState(0);
 
-    // Inisialisasi Firebase
+    // Inisialisasi Firebase dengan retry logic
     useEffect(() => {
-        try {
-            const app = initializeApp(firebaseConfig);
-            const database = getDatabase(app);
-            setDb(database);
-        } catch (error) {
-            console.error("Firebase initialization error:", error);
-        }
-    }, []);
+        let retryTimeout;
+        
+        const initializeFirebase = async () => {
+            try {
+                const app = initializeApp(firebaseConfig);
+                const database = getDatabase(app);
+                
+                // Force reconnect
+                goOffline(database);
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                goOnline(database);
+                
+                // Set transport preference to long-polling if WebSocket fails
+                const dbRef = ref(database, '.info/connected');
+                const unsubscribe = onValue(dbRef, (snapshot) => {
+                    if (!snapshot.val() && connectionAttempts < MAX_RETRIES) {
+                        setConnectionAttempts(prev => prev + 1);
+                        retryTimeout = setTimeout(initializeFirebase, RETRY_DELAY);
+                    } else {
+                        setDb(database);
+                    }
+                });
 
-    // Fungsi untuk mendapatkan lokasi user menggunakan API alternatif
+                return () => {
+                    unsubscribe();
+                    if (retryTimeout) clearTimeout(retryTimeout);
+                };
+            } catch (error) {
+                console.error("Firebase initialization error:", error);
+                if (connectionAttempts < MAX_RETRIES) {
+                    setConnectionAttempts(prev => prev + 1);
+                    retryTimeout = setTimeout(initializeFirebase, RETRY_DELAY);
+                }
+            }
+        };
+
+        initializeFirebase();
+
+        return () => {
+            if (retryTimeout) clearTimeout(retryTimeout);
+        };
+    }, [connectionAttempts]);
+
+    // Fungsi untuk mendapatkan lokasi user
     const getUserLocation = useCallback(async () => {
         try {
-            // Menggunakan API alternatif yang mendukung CORS
             const response = await fetch('https://api.db-ip.com/v2/free/self', {
                 method: 'GET',
                 headers: {
@@ -57,8 +102,8 @@ const OnlineTracker = () => {
         }
     }, []);
 
-    // Fungsi untuk update user status
-    const updateUserStatus = useCallback(async (userRef, status, locationData) => {
+    // Fungsi untuk update user status dengan retry logic
+    const updateUserStatus = useCallback(async (userRef, status, locationData, retryCount = 0) => {
         try {
             await set(userRef, {
                 timestamp: serverTimestamp(),
@@ -69,6 +114,11 @@ const OnlineTracker = () => {
             });
         } catch (error) {
             console.error('Status update error:', error);
+            if (retryCount < MAX_RETRIES) {
+                setTimeout(() => {
+                    updateUserStatus(userRef, status, locationData, retryCount + 1);
+                }, RETRY_DELAY);
+            }
         }
     }, []);
 
@@ -87,7 +137,6 @@ const OnlineTracker = () => {
                 const userRef = ref(db, `online_users/${sessionId}`);
                 await updateUserStatus(userRef, 'online', locationData);
 
-                // Realtime listener
                 const usersRef = ref(db, 'online_users');
                 unsubscribe = onValue(usersRef, (snapshot) => {
                     if (snapshot.exists()) {
@@ -102,7 +151,6 @@ const OnlineTracker = () => {
                     }
                 });
 
-                // Update interval
                 intervalId = setInterval(async () => {
                     await updateUserStatus(userRef, 'online', locationData);
                 }, 5000);
@@ -113,7 +161,6 @@ const OnlineTracker = () => {
 
         setupRealtimeListeners();
 
-        // Cleanup
         return () => {
             if (intervalId) clearInterval(intervalId);
             if (unsubscribe) unsubscribe();
@@ -128,6 +175,10 @@ const OnlineTracker = () => {
                 .catch(console.error);
         };
     }, [db, getUserLocation, updateUserStatus]);
+
+    if (connectionAttempts >= MAX_RETRIES) {
+        return null; // Atau tampilkan pesan error yang sesuai
+    }
 
     return (
         <div className="online-tracker">
