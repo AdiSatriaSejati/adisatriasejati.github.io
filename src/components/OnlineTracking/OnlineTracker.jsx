@@ -1,108 +1,148 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, onValue, set, serverTimestamp } from 'firebase/database';
+import { getDatabase, ref, onValue, set, serverTimestamp, connectDatabaseEmulator } from 'firebase/database';
 import './OnlineTracker.css';
 
+// Pindahkan config ke .env
 const firebaseConfig = {
-  apiKey: "AIzaSyD_q9Cf_7-8BXdcM3z-5sT23saMDke8sQ4",
-  authDomain: "adisatriasejati-1512.firebaseapp.com",
-  databaseURL: "https://adisatriasejati-1512-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "adisatriasejati-1512",
-  storageBucket: "adisatriasejati-1512.firebasestorage.app",
-  messagingSenderId: "953799261500",
-  appId: "1:953799261500:web:be24c74d27fc05b7887239",
-  measurementId: "G-3KSPEETE36"
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
+    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 const OnlineTracker = () => {
     const [onlineUsers, setOnlineUsers] = useState(0);
     const [userLocation, setUserLocation] = useState(null);
     const [db, setDb] = useState(null);
+    const [connectionError, setConnectionError] = useState(false);
 
+    // Inisialisasi Firebase dengan error handling yang lebih baik
     useEffect(() => {
         try {
-            // Inisialisasi Firebase sekali saja
             const app = initializeApp(firebaseConfig);
             const database = getDatabase(app);
+            
+            // Gunakan emulator jika dalam mode development
+            if (process.env.NODE_ENV === 'development') {
+                connectDatabaseEmulator(database, 'localhost', 9000);
+            }
+            
             setDb(database);
         } catch (error) {
             console.error("Firebase initialization error:", error);
+            setConnectionError(true);
+        }
+    }, []);
+
+    // Fungsi untuk mendapatkan lokasi user
+    const getUserLocation = useCallback(async () => {
+        try {
+            const response = await fetch('https://ipapi.co/json/', {
+                headers: {
+                    'Accept': 'application/json',
+                    'Cache-Control': 'no-cache'
+                }
+            });
+            
+            if (!response.ok) throw new Error('Location fetch failed');
+            
+            const data = await response.json();
+            return {
+                city: data.city,
+                country: data.country_name
+            };
+        } catch (error) {
+            console.error('Location fetch error:', error);
+            return null;
+        }
+    }, []);
+
+    // Fungsi untuk update user status
+    const updateUserStatus = useCallback(async (userRef, status, locationData) => {
+        try {
+            await set(userRef, {
+                timestamp: serverTimestamp(),
+                lastPing: Date.now(),
+                location: locationData?.city || 'Unknown',
+                country: locationData?.country || 'Unknown',
+                browser: navigator.userAgent,
+                status: status,
+                connectionType: navigator.connection?.type || 'unknown'
+            });
+        } catch (error) {
+            console.error('Status update error:', error);
         }
     }, []);
 
     useEffect(() => {
         if (!db) return;
 
-        // Generate unique ID untuk setiap sesi
-        const sessionId = Math.random().toString(36).substr(2, 9);
-        
-        // Dapatkan lokasi user menggunakan ipapi.co
-        const getUserLocation = async () => {
+        let intervalId;
+        let unsubscribe;
+        const sessionId = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+
+        const setupRealtimeListeners = async () => {
             try {
-                const response = await fetch('https://ipapi.co/json/');
-                const data = await response.json();
-                setUserLocation(data.city);
-                
-                // Update data user dengan timestamp server
+                const locationData = await getUserLocation();
+                setUserLocation(locationData?.city);
+
                 const userRef = ref(db, `online_users/${sessionId}`);
-                await set(userRef, {
-                    timestamp: serverTimestamp(),
-                    lastPing: Date.now(),
-                    location: data.city,
-                    country: data.country_name,
-                    browser: navigator.userAgent,
-                    status: 'online'
+                await updateUserStatus(userRef, 'online', locationData);
+
+                // Realtime listener dengan error handling
+                const usersRef = ref(db, 'online_users');
+                unsubscribe = onValue(usersRef, (snapshot) => {
+                    if (snapshot.exists()) {
+                        const users = snapshot.val();
+                        const now = Date.now();
+                        const activeUsers = Object.values(users).filter(user => 
+                            now - user.lastPing < 10000 && user.status === 'online'
+                        );
+                        setOnlineUsers(activeUsers.length);
+                    } else {
+                        setOnlineUsers(0);
+                    }
+                }, (error) => {
+                    console.error('Realtime listener error:', error);
+                    setConnectionError(true);
                 });
+
+                // Update interval dengan error handling
+                intervalId = setInterval(async () => {
+                    await updateUserStatus(userRef, 'online', locationData);
+                }, 5000);
             } catch (error) {
-                console.error('Error getting location:', error);
+                console.error('Setup error:', error);
+                setConnectionError(true);
             }
         };
 
-        getUserLocation();
+        setupRealtimeListeners();
 
-        // Realtime listener untuk user online
-        const usersRef = ref(db, 'online_users');
-        const unsubscribe = onValue(usersRef, (snapshot) => {
-            if (snapshot.exists()) {
-                const users = snapshot.val();
-                const now = Date.now();
-                const activeUsers = Object.values(users).filter(user => {
-                    // Menganggap user online jika ping terakhir < 10 detik
-                    return now - user.lastPing < 10000;
-                });
-                setOnlineUsers(activeUsers.length);
-            } else {
-                setOnlineUsers(0);
-            }
-        });
-
-        // Update status setiap 5 detik
-        const intervalId = setInterval(async () => {
-            const userRef = ref(db, `online_users/${sessionId}`);
-            await set(userRef, {
-                timestamp: serverTimestamp(),
-                lastPing: Date.now(),
-                location: userLocation,
-                status: 'online'
-            });
-        }, 5000);
-
-        // Cleanup saat component unmount
+        // Cleanup
         return () => {
+            if (intervalId) clearInterval(intervalId);
+            if (unsubscribe) unsubscribe();
+            
             const userRef = ref(db, `online_users/${sessionId}`);
-            set(userRef, {
-                status: 'offline',
-                lastPing: Date.now()
-            }).then(() => {
-                // Hapus data user setelah 10 detik
-                setTimeout(() => {
-                    set(userRef, null);
-                }, 10000);
-            });
-            unsubscribe();
-            clearInterval(intervalId);
+            updateUserStatus(userRef, 'offline', null)
+                .then(() => {
+                    setTimeout(() => {
+                        set(userRef, null).catch(console.error);
+                    }, 10000);
+                })
+                .catch(console.error);
         };
-    }, [db, userLocation]);
+    }, [db, getUserLocation, updateUserStatus]);
+
+    if (connectionError) {
+        return null; // Atau tampilkan pesan error yang sesuai
+    }
 
     return (
         <div className="online-tracker">
@@ -122,4 +162,4 @@ const OnlineTracker = () => {
     );
 };
 
-export default OnlineTracker;
+export default React.memo(OnlineTracker);
