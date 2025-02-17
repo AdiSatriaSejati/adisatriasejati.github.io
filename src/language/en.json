@@ -7,8 +7,8 @@
 
     "coming-soon":"Coming Soon",
 
-    "site-web": "websites",
-    "games": "games",
+    "site-web": "Websites",
+    "games": "Games",
 
 
     "greeting": "Hello",
@@ -20,10 +20,23 @@
     "description": "My name is Adi Satria Sejati and I am a Full-Stack Developer.",
     "my-description": "Diploma 3 Information Systems student with experience in e-commerce administration, IT support, and web development. Having the ability to manage marketplaces, product content optimization, and understanding of ERP systems. Skilled in using Laravel, MySQL, and GitHub for software project management. Accustomed to working independently or in a team in a remote or hybrid work environment.",
     "years": "Age: ",
+    "Hobbies": "Hobies: ",
+    "my-Hobbies": "Billiards, Badminton, Cycling, Chess, Futsal & Programming",
     "from": "From: ",
     "btn-know-more": "Read more",
+    "skills": "Skills",
     "tools": "Tools",
+    "soft-skills": "Soft Skills",
 
+    "independence": "Independence",
+    "team-work": "Team Work",
+    "persistence": "Persistence",
+    "work-ethic": "Work Ethic",
+    "creativity": "Creativity",
+    "adaptability": "Adaptability",
+    "patience": "Patience",
+    "orientation-details": "Orientation Details",
+    "emotional-intelligence": "Emotional Intelligence",
 
     "certifications1": "Learn Basic Web Programming",
     "certifications2": "Front End Development Libraries",

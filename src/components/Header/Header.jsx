@@ -72,18 +72,22 @@ const Header = () => {
                 </Link>
                 <div id="buttons">
                     <img 
-                    onClick={() => idioma.selectLanguage('en-EN')} 
-                    src="img/language/english.webp" 
-                    alt="English" 
-                    width="30" 
-                    height="20" 
+                        onClick={() => idioma.selectLanguage('en-EN')} 
+                        src="img/language/english.webp" 
+                        alt="English"
+                        width="32"
+                        height="32"
+                        loading="lazy"
+                        className="language-icon"
                     />
                     <img 
-                    onClick={() => idioma.selectLanguage('id-ID')} 
-                    src="img/language/indonesia.webp" 
-                    alt="Indonesian" 
-                    width="30" 
-                    height="20" 
+                        onClick={() => idioma.selectLanguage('id-ID')} 
+                        src="img/language/indonesia.webp" 
+                        alt="Indonesian" 
+                        width="32"
+                        height="32"
+                        loading="lazy"
+                        className="language-icon"
                     />
                     <MusicPlayer />
                 </div>

@@ -92,10 +92,15 @@ const Content = () => {
                         spy={true} 
                         smooth={true} 
                         offset={-10} 
-                        duration={500} 
+                        duration={500}
+                        href="#sobre-mi"
                         className="scroll-down"
+                        aria-label="Scroll to About section"
+                        role="button"
+                        tabIndex={0}
                     >
-                        <i className="fas fa-chevron-down"></i>
+                        <i className="fas fa-chevron-down" aria-hidden="true"></i>
+                        <span className="sr-only">Scroll to About section</span>
                     </Link>
                 </div>
             </section>

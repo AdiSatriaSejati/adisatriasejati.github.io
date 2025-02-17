@@ -308,3 +308,37 @@ body.dark #darkMode::after {
     width: 100%;
   }
 }
+
+.language-icon {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: transform 0.2s ease;
+    object-fit: cover;
+    margin: -7.5px auto;
+}
+
+.language-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Dark mode support */
+body.dark .language-icon {
+    filter: brightness(0.9);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .language-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .language-icon {
+        width: 24px;
+        height: 24px;
+    }
+}
