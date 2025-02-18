@@ -18,15 +18,28 @@ const OnlineTracker = () => {
     const [onlineUsers, setOnlineUsers] = useState(0);
     const [userLocation, setUserLocation] = useState(null);
     const [db, setDb] = useState(null);
+    const [connectionError, setConnectionError] = useState(false);
 
-    // Inisialisasi Firebase
+    // Inisialisasi Firebase dengan error handling
     useEffect(() => {
         try {
             const app = initializeApp(firebaseConfig);
             const database = getDatabase(app);
             setDb(database);
+
+            // Cek koneksi database
+            const connectedRef = ref(database, '.info/connected');
+            onValue(connectedRef, (snap) => {
+                if (snap.val() === false) {
+                    setConnectionError(true);
+                } else {
+                    setConnectionError(false);
+                }
+            });
+
         } catch (error) {
-            console.error("Firebase initialization error:", error);
+            console.error('Firebase initialization error:', error);
+            setConnectionError(true);
         }
     }, []);
 
@@ -128,6 +141,11 @@ const OnlineTracker = () => {
                 .catch(console.error);
         };
     }, [db, getUserLocation, updateUserStatus]);
+
+    // Render dengan error handling
+    if (connectionError) {
+        return null; // Atau tampilkan fallback UI yang sesuai
+    }
 
     return (
         <div className="online-tracker">

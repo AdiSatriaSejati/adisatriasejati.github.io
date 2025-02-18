@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import './App.css';
 import OnlineTracker from './components/OnlineTracking/OnlineTracker';
 import { MusicProvider } from './context/MusicContext';
+import ErrorBoundary from './components/ErrorBoundary';
 
 /* Pages */
 import Home from "./pages/Home/HomePage";
@@ -97,7 +98,9 @@ function App() {
         <MusicProvider>
             <RouterScrollTop />
             <Cursor />
-            <OnlineTracker />
+            <ErrorBoundary>
+                <OnlineTracker />
+            </ErrorBoundary>
             {loading ? (
                 <div className='loading-pag'>
                     <div className="loader">
