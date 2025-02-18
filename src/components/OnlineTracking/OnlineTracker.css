@@ -1,7 +1,7 @@
 .online-tracker {
     position: fixed;
-    bottom: 20px; /* Jarak dari bawah */
-    left: 20px; /* Jarak dari kiri */
+    bottom: 10rem; /* Jarak dari bawah */
+    right: 20px; /* Jarak dari kiri */
     z-index: 1000; /* Pastikan berada di atas elemen lain */
 }
 

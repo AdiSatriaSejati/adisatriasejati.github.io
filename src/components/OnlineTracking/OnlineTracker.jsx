@@ -6,9 +6,14 @@ import {
     onValue, 
     set,
     remove,
-    serverTimestamp 
+    serverTimestamp,
+    query,
+    orderByChild 
 } from 'firebase/database';
 import './OnlineTracker.css';
+
+const CLEANUP_INTERVAL = 5000; // 5 detik
+const SESSION_TIMEOUT = 1000; // 1 menit
 
 const OnlineTracker = () => {
     const [onlineUsers, setOnlineUsers] = useState(0);
@@ -18,6 +23,7 @@ const OnlineTracker = () => {
         let userRef;
         let onlineRef;
         let unsubscribe;
+        let cleanupInterval;
 
         const initFirebase = async () => {
             try {
@@ -33,22 +39,77 @@ const OnlineTracker = () => {
                 });
 
                 const db = getDatabase(app);
-                const userId = `user-${Date.now()}`;
+                
+                // Gunakan sessionStorage untuk menyimpan userId
+                let userId = sessionStorage.getItem('userId');
+                if (!userId) {
+                    userId = `user-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
+                    sessionStorage.setItem('userId', userId);
+                }
+
                 userRef = ref(db, `users/${userId}`);
                 onlineRef = ref(db, 'users');
 
-                // Set user online
+                // Set user online dengan timestamp
                 await set(userRef, {
                     timestamp: serverTimestamp(),
-                    online: true
+                    lastActive: Date.now()
                 });
 
-                // Listen for online users
+                // Update lastActive setiap 30 detik
+                const updateLastActive = async () => {
+                    try {
+                        await set(userRef, {
+                            timestamp: serverTimestamp(),
+                            lastActive: Date.now()
+                        });
+                    } catch (error) {
+                        console.error('Error updating lastActive:', error);
+                    }
+                };
+
+                // Cleanup inactive users
+                const cleanupInactiveUsers = async () => {
+                    const usersQuery = query(onlineRef, orderByChild('lastActive'));
+                    onValue(usersQuery, async (snapshot) => {
+                        if (snapshot.exists()) {
+                            const now = Date.now();
+                            const users = snapshot.val();
+                            let activeCount = 0;
+
+                            for (const [key, user] of Object.entries(users)) {
+                                if (now - user.lastActive > SESSION_TIMEOUT) {
+                                    // Remove inactive user
+                                    await remove(ref(db, `users/${key}`));
+                                } else {
+                                    activeCount++;
+                                }
+                            }
+                            setOnlineUsers(activeCount);
+                        } else {
+                            setOnlineUsers(0);
+                        }
+                    }, {
+                        onlyOnce: true
+                    });
+                };
+
+                // Set intervals for updates
+                const activeInterval = setInterval(updateLastActive, CLEANUP_INTERVAL);
+                cleanupInterval = setInterval(cleanupInactiveUsers, CLEANUP_INTERVAL);
+
+                // Initial cleanup and count
+                await cleanupInactiveUsers();
+
+                // Listen for changes
                 unsubscribe = onValue(onlineRef, (snapshot) => {
                     if (snapshot.exists()) {
+                        const now = Date.now();
                         const users = snapshot.val();
-                        const count = Object.keys(users).length;
-                        setOnlineUsers(count);
+                        const activeUsers = Object.values(users).filter(
+                            user => now - user.lastActive <= SESSION_TIMEOUT
+                        );
+                        setOnlineUsers(activeUsers.length);
                         setConnectionError(false);
                     } else {
                         setOnlineUsers(0);
@@ -56,6 +117,11 @@ const OnlineTracker = () => {
                 }, (error) => {
                     console.error('Database error:', error);
                     setConnectionError(true);
+                });
+
+                // Cleanup on page unload
+                window.addEventListener('beforeunload', async () => {
+                    await remove(userRef);
                 });
 
             } catch (error) {
@@ -70,6 +136,9 @@ const OnlineTracker = () => {
         return () => {
             if (unsubscribe) {
                 unsubscribe();
+            }
+            if (cleanupInterval) {
+                clearInterval(cleanupInterval);
             }
             if (userRef) {
                 remove(userRef).catch(console.error);
