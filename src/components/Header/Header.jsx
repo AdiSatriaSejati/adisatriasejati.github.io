@@ -46,19 +46,19 @@ const Header = () => {
                         defaultMessage='Home'
                     />
                 </Link>
-                <Link to="sobre-mi" spy={true} offset={-100} href="#sobre-mi" aria-label="About">
+                <Link to="sobre-mi" spy={true} offset={-50} href="#sobre-mi" aria-label="About">
                     <FormattedMessage
                         id='about'
                         defaultMessage='About'
                     />
                 </Link>
-                <Link to="sertifikasi" spy={true} offset={-100} href="#sertifikasi" aria-label="Certifications">
+                <Link to="sertifikasi" spy={true} offset={-50} href="#sertifikasi" aria-label="Certifications">
                     <FormattedMessage
                         id='certifications'
                         defaultMessage='Certifications'
                     />
                 </Link>
-                <Link to="proyectos" spy={true} offset={-100} href="#proyectos" aria-label="Projects">
+                <Link to="proyectos" spy={true} offset={-50} href="#proyectos" aria-label="Projects">
                     <FormattedMessage
                         id='projects'
                         defaultMessage='Projects'

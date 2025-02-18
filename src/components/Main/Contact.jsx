@@ -9,7 +9,6 @@ import { FormattedMessage } from 'react-intl';
 const Contact = () => (
 
     <section className="contactos" id="contactos">
-
         <h2 className="heading">
             <FormattedMessage
                 id='contact'
