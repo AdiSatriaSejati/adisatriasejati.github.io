@@ -4,9 +4,9 @@ import {
     getDatabase, 
     ref, 
     onValue, 
-    set, 
-    serverTimestamp, 
-    onDisconnect
+    set,
+    remove,
+    serverTimestamp 
 } from 'firebase/database';
 import './OnlineTracker.css';
 
@@ -16,69 +16,67 @@ const OnlineTracker = () => {
 
     useEffect(() => {
         let userRef;
-        let connectedRef;
-        
-        try {
-            // Inisialisasi Firebase
-            const app = initializeApp({
-                apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-                authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-                databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
-                projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-                storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-                messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-                appId: process.env.REACT_APP_FIREBASE_APP_ID
-            });
+        let onlineRef;
+        let unsubscribe;
 
-            const db = getDatabase(app);
-            const userId = generateUserId();
+        const initFirebase = async () => {
+            try {
+                // Initialize Firebase
+                const app = initializeApp({
+                    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+                    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+                    databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+                    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+                    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+                    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+                    appId: process.env.REACT_APP_FIREBASE_APP_ID
+                });
 
-            // Cek koneksi
-            connectedRef = ref(db, '.info/connected');
-            userRef = ref(db, `online-users/${userId}`);
+                const db = getDatabase(app);
+                const userId = `user-${Date.now()}`;
+                userRef = ref(db, `users/${userId}`);
+                onlineRef = ref(db, 'users');
 
-            // Monitor koneksi
-            const unsubscribe = onValue(connectedRef, (snap) => {
-                if (snap.val() === true) {
-                    setConnectionError(false);
+                // Set user online
+                await set(userRef, {
+                    timestamp: serverTimestamp(),
+                    online: true
+                });
 
-                    // Set user status
-                    set(userRef, {
-                        timestamp: serverTimestamp()
-                    }).catch(console.error);
-
-                    // Cleanup saat disconnect
-                    onDisconnect(userRef).remove();
-                } else {
+                // Listen for online users
+                unsubscribe = onValue(onlineRef, (snapshot) => {
+                    if (snapshot.exists()) {
+                        const users = snapshot.val();
+                        const count = Object.keys(users).length;
+                        setOnlineUsers(count);
+                        setConnectionError(false);
+                    } else {
+                        setOnlineUsers(0);
+                    }
+                }, (error) => {
+                    console.error('Database error:', error);
                     setConnectionError(true);
-                }
-            }, (error) => {
-                console.error('Connection error:', error);
+                });
+
+            } catch (error) {
+                console.error('Firebase init error:', error);
                 setConnectionError(true);
-            });
+            }
+        };
 
-            // Monitor jumlah user online
-            const onlineRef = ref(db, 'online-users');
-            const onlineUnsubscribe = onValue(onlineRef, (snapshot) => {
-                setOnlineUsers(snapshot.size || 0);
-            });
+        initFirebase();
 
-            // Cleanup
-            return () => {
+        // Cleanup
+        return () => {
+            if (unsubscribe) {
                 unsubscribe();
-                onlineUnsubscribe();
-                if (userRef) {
-                    set(userRef, null).catch(console.error);
-                }
-            };
+            }
+            if (userRef) {
+                remove(userRef).catch(console.error);
+            }
+        };
+    }, []);
 
-        } catch (error) {
-            console.error('Firebase initialization error:', error);
-            setConnectionError(true);
-        }
-    }, []); // Empty dependency array karena tidak ada dependencies
-
-    // Jika ada error, tampilkan nothing
     if (connectionError) {
         return null;
     }
@@ -93,11 +91,6 @@ const OnlineTracker = () => {
             </div>
         </div>
     );
-};
-
-// Helper function untuk generate unique ID
-const generateUserId = () => {
-    return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 };
 
 export default React.memo(OnlineTracker);
