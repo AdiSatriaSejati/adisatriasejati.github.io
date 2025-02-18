@@ -10,7 +10,7 @@
     "ajv": "^8.17.1",
     "ajv-keywords": "^5.1.0",
     "aos": "^2.3.4",
-    "dompurify": "^3.1.7",
+    "dompurify": "^3.2.4",
     "firebase": "^10.8.0",
     "@firebase/database": "^1.0.1",
     "gsap": "^3.12.7",
