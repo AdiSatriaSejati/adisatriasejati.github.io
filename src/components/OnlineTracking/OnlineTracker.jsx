@@ -13,7 +13,7 @@ import {
 import './OnlineTracker.css';
 
 const CLEANUP_INTERVAL = 5000; // 5 detik
-const SESSION_TIMEOUT = 1000; // 1 menit
+const SESSION_TIMEOUT = 30000; // 30 menit
 
 const OnlineTracker = () => {
     const [onlineUsers, setOnlineUsers] = useState(0);
