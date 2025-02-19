@@ -29,10 +29,16 @@ const Content = () => {
                         />
                         <span>
                             <img 
-                                src="https://raw.githubusercontent.com/jigar-sable/next-portfolio/refs/heads/main/public/waving-hand.gif" 
+                                src="/img/waving-hand.gif" 
                                 alt="wave" 
-                                width="45px"
-                                style={{ marginLeft: '10px', marginRight: '5px' }}
+                                width="35"
+                                height="35"
+                                loading="lazy"
+                                style={{ 
+                                    marginLeft: '10px', 
+                                    marginRight: '5px',
+                                    objectFit: 'contain'
+                                }}
                             />
                         </span>
                     </p>
