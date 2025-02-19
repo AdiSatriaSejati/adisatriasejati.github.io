@@ -1,6 +1,6 @@
 .online-tracker {
     position: fixed;
-    bottom: 10rem; /* Jarak dari bawah */
+    bottom: 0.5rem; /* Jarak dari bawah */
     right: 20px; /* Jarak dari kiri */
     z-index: 1000; /* Pastikan berada di atas elemen lain */
 }
@@ -20,29 +20,17 @@
     display: flex;
     align-items: center; /* Pusatkan secara vertikal */
     gap: 8px; /* Jarak antara ikon dan teks */
-    font-size: 14px; /* Ukuran font */
-    color: #333; /* Warna teks */
+    font-size: 12px; /* Ukuran font */
+    color: var(--black); /* Warna teks */
 }
 
 .pulse {
-    width: 8px; /* Lebar lingkaran */
-    height: 8px; /* Tinggi lingkaran */
+    width: 6px; /* Lebar lingkaran */
+    height: 6px; /* Tinggi lingkaran */
     background-color: #4CAF50; /* Warna hijau */
     border-radius: 50%; /* Bentuk lingkaran */
     display: inline-block; /* Tampilkan sebagai elemen inline */
     animation: pulse 1.5s infinite; /* Animasi pulse */
-}
-
-.location-info {
-    display: flex;
-    align-items: center; /* Pusatkan secara vertikal */
-    gap: 8px; /* Jarak antara ikon dan teks */
-    font-size: 12px; /* Ukuran font */
-    color: #666; /* Warna teks */
-}
-
-.location-info i {
-    color: var(--red); /* Warna ikon */
 }
 
 @keyframes pulse {
@@ -65,19 +53,22 @@ body.dark .tracker-container {
     background: rgba(0, 0, 0, 0.8); /* Latar belakang hitam dengan transparansi */
 }
 
-body.dark .online-count,
-body.dark .location-info {
-    color: #fff; /* Warna teks putih untuk dark mode */
+body.dark .online-count {
+    color: var(--white); /* Warna teks putih untuk dark mode */
 }
 
 /* Responsive */
 @media (max-width: 768px) {
+    .online-tracker{
+        display: flex;
+        left: 0;
+        bottom: 2.5rem;
+    }
     .tracker-container {
-        padding: 8px 12px; /* Padding lebih kecil untuk layar kecil */
+        padding: 8px 12px;
     }
     
-    .online-count,
-    .location-info {
+    .online-count {
         font-size: 12px; /* Ukuran font lebih kecil untuk layar kecil */
     }
 } 
